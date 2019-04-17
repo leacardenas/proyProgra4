@@ -12,7 +12,7 @@ body {
   overflow: hidden;
 }
 
-.login-text {
+.login-intro {
   width: 800px;
   height: 450px;
   background: linear-gradient(to left, #3d7088, #e7e7e7);
@@ -24,27 +24,27 @@ body {
   z-index: 11;
 }
 
-.text {
+.intro {
   color: #fff;
   display: none;
   transition: all 0.5s ease-in-out;
   transition-delay: 0.3s;
   text-align: center;
 }
-.text a, .text a:visited {
+.intro a, .intro a:visited {
   font-size: 36px;
   color: #fff;
   text-decoration: none;
   font-weight: bold;
   display: block;
 }
-.text hr {
+.intro hr {
   width: 10%;
   float: left;
   background-color: #fff;
   font-size: 16px;
 }
-.text input {
+.intro input {
   margin-top: 30px;
   height: 40px;
   width: 300px;
@@ -56,22 +56,22 @@ body {
   color: #fff;
   padding-left: 10px;
 }
-.text input[type=text] {
+.intro input[type=text] {
   margin-top: 60px;
 }
-.text button {
+.intro button {
   margin-top: 60px;
   height: 40px;
   width: 140px;
   outline: none;
 }
-.text .login-btn {
+.intro .login-btn {
   background: #fff;
   border: none;
   border-radius: 2px;
   color: #696a86;
 }
-.text .signup-btn {
+.intro .signup-btn {
   background: transparent;
   border: 2px solid #fff;
   border-radius: 2px;
@@ -104,23 +104,23 @@ body {
   box-sizing: border-box;
   text-align: center;
 }
-.text h1 {
+.intro h1 {
   font-size: 35px;
   margin-top: 10%;
   color: #696a86;
 }
 
-.text h2 {
+.intro h2 {
   font-size: 25px;
   color: #696a86;
 }
 
-.text h2 span {
+.intro h2 span {
   color: #333;
   font-weight: bolder;
 }
 
-.text h1 span {
+.intro h1 span {
   color: #333;
   font-weight: bolder;
 }
