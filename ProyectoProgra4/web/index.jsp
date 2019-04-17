@@ -19,7 +19,7 @@
     <body>
         <div class="wrapper">
             <div class="login-intro">
-                <button class="cta"><i class="fas fa-chevron-down fa-1x"></i></button>
+                <button class="sliderButton"><i class="fas fa-chevron-down fa-1x"></i></button>
                 <div class="intro">
                     <h1>
                         Programación 4 
