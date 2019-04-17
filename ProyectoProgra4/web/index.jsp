@@ -40,7 +40,7 @@
                     </h2>
                 </div>
             </div>
-            <div class="call-text">
+            <div class="login-form">
                 <p>Login</p>
                 <hr>
                 <br>

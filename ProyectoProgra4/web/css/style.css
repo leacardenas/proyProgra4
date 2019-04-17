@@ -14,7 +14,7 @@ body {
 
 .login-intro {
   width: 800px;
-  height: 450px;
+  height: 591px;
   background: linear-gradient(to left, #3d7088, #e7e7e7);
   position: absolute;
   top: -370px;
@@ -44,8 +44,8 @@ body {
   background-color: #fff;
   font-size: 16px;
 }
-.intro input {
-  margin-top: 30px;
+.login-form input {
+  margin-top: 10px;
   height: 40px;
   width: 300px;
   border-radius: 2px;
@@ -56,22 +56,19 @@ body {
   color: #fff;
   padding-left: 10px;
 }
-.intro input[type=text] {
-  margin-top: 60px;
-}
 .intro button {
   margin-top: 60px;
   height: 40px;
   width: 140px;
   outline: none;
 }
-.intro .login-btn {
+login-form .login-btn {
   background: #fff;
   border: none;
   border-radius: 2px;
   color: #696a86;
 }
-.intro .signup-btn {
+login-form .signup-btn {
   background: transparent;
   border: 2px solid #fff;
   border-radius: 2px;
@@ -94,10 +91,9 @@ body {
   z-index: 11;
 }
 
-.call-text {
+.login-form {
   background-color: #fff;
   width: 800px;
-  height: 450px;
   position: absolute;
   bottom: 0;
   padding: 10%;
@@ -124,13 +120,13 @@ body {
   color: #333;
   font-weight: bolder;
 }
-.call-text button {
+.login-form button {
   height: 40px;
   width: 180px;
   border: none;
   border-radius: 20px;
   background: linear-gradient(to left, #3d7088, #e7e7e7);
-  color: #fff;
+  color: #50515f;
   font-weight: bolder;
   margin-top: 30px;
   cursor: pointer;
@@ -143,4 +139,14 @@ body {
 
 .expand {
   transform: translateY(300px);
+}
+
+.login-form p{
+    font-size: larger;
+    font-weight: 700;
+}
+
+.login-form button:hover{
+    color:#fff;
+    background: linear-gradient(to left, #499cc3, #4e4f5d);
 }
