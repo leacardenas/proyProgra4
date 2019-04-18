@@ -1,10 +1,12 @@
 package modelo;
 
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import modelo.dao.GestorEstudiante;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -28,6 +30,30 @@ public class Estudiantes {
 
     public Estudiantes() {
     }
+    
+//------------------------------------------------------------------------------------------
+    public Estudiantes(String nombre, String apellidos, String id){
+        this.id = id;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+    }
+    
+  //para mostrar la tabla de estudiantes por medio de etiquetas en el jsp  
+     public static String listaMiembros(String etiqueta, String idGroup, String group) throws InstantiationException, ClassNotFoundException, SQLException {
+        StringBuilder contents = new StringBuilder();
+        contents.append("<tr>");
+        contents.append(String.format("<th class=\"group\">%s</th>", group));
+        contents.append("</tr>");
+        GestorEstudiante ge = new GestorEstudiante();
+        for (Object nuevaOpcion : ge.miembros_Grupo(idGroup)) {
+            contents.append("<tr>");
+            contents.append(String.format("<td class=\"member\">",
+                    nuevaOpcion.toString(), nuevaOpcion.toString()));
+            contents.append("</tr>");
+        }
+        return contents.toString();
+}
+//------------------------------------------------------------------------------------------
 
     public Estudiantes(String id, String nombre, String apellidos, Integer nrc, Integer secuencia, String clave, Date ultimo_acceso, Integer grupo_id) {
         this.id = id;
