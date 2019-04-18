@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import org.apache.commons.text.StringEscapeUtils;
+import static org.apache.commons.text.StringEscapeUtils.ESCAPE_HTML4;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -153,5 +155,23 @@ public class Estudiantes {
         return string;
     }
     
+    private static final String FORMATO_REGISTRO_HTML
+            = "<tr><td class=\"etiqueta\">Id:</td><td class=\"datos\">%s</td></tr>"
+            + "<tr><td class=\"etiqueta\">Nombre:</td><td class=\"datos\">%s</td></tr>"
+            + "<tr><td class=\"etiqueta\">Ultimo acceso:</td><td class=\"datos\">%s</td></tr>"
+            + "<tr><td class=\"etiqueta\">Grupo:</td><td class=\"datos\">%s</td></tr>";
+     
+    public String toHTMLString() {
+        String m = nombre + " " + apellidos;
+        String d = this.dateToString(ultimo_acceso);
+        String g = String.valueOf(this.grupo_id);
+            return String.format(FORMATO_REGISTRO_HTML,
+                    StringEscapeUtils.builder(ESCAPE_HTML4).escape(id),
+                    StringEscapeUtils.builder(ESCAPE_HTML4).escape(m),
+                    StringEscapeUtils.builder(ESCAPE_HTML4).escape(d),
+                    StringEscapeUtils.builder(ESCAPE_HTML4).escape(g)
+            );    
+    }
+     
     
 }
