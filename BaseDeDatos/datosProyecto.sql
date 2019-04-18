@@ -19,6 +19,11 @@
 -- Table structure for table `estudiante`
 --
 
+DROP SCHEMA IF EXISTS `datosProyecto` ;
+CREATE SCHEMA IF NOT EXISTS `datosProyecto`
+	DEFAULT CHARACTER SET UTF8MB4;
+USE `datosProyecto` ;
+
 DROP TABLE IF EXISTS `estudiante`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
