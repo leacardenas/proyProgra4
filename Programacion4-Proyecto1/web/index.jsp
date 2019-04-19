@@ -19,23 +19,23 @@
     <body>
         <div class="wrapper">
             <div class="login-intro">
-                <button class="sliderButton"><i class="fas fa-chevron-down fa-1x"></i></button>
+                <button class="sliderButton"><i class="fas fa-plus fa-1x"></i></button>
                 <div class="intro">
                     <h1>
                         Programación 4 
                         <br/>
-                        <span>Proyecto # 1  </span>
-                        <br/>
+                        Proyecto # 1 
+                    </h1>
+                    <h1 style="margin-top: 5%">
+                        Integrantes: 
                     </h1>
                     <h2>
-                        Integrantes: 
-                        <br/>
                         <span>Bryan Garro Eduarte</span>
-                        <br/>
+                        <br/><br/>
                         <span>Fiorella Salgado Rodriguez</span>
-                        <br/>
+                        <br/><br/>
                         <span>Lea Cárdenas Alpízar</span>
-                        <br/>
+                        <br/><br/>
                         <span>Moises Moraga Alfaro</span>
                     </h2>
                 </div>
@@ -56,7 +56,7 @@
                 <br>
                 <input type="password" placeholder="Password">
                 <br>
-                <button class="login-btn">Log In</button>
+                <button class="login-btn"><i class="fas fa-sign-in-alt"></i> Login</button>
             </div>
         </div>
         <script  src="js/index.js"></script>
