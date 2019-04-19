@@ -1,7 +1,15 @@
-<%-- 
-    Document   : index
-    Created on : Apr 16, 2019, 6:30:30 PM
-    Author     : Lea
+<%--
+// index.jsp
+//
+// EIF209 - Programación 4 – Proyecto #1
+// Abril 2019
+//
+// Autores:
+// - 000000000 Bryan Garro Eduarte
+// - 000000000 Fiorella Salgado Rodriguez
+// - 116870078 Lea Cárdenas Alpízar
+// - 000000000 Moises Moraga Alfaro
+//
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,7 +20,7 @@
         <meta charset="UTF-8">
         <title>Login</title>
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/login.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
     </head>
 
@@ -49,7 +57,7 @@
                         sesionActual = request.getSession(true);
                 %>
 
-                <p>Login</p>
+                <h1>Login</h1>
                 <hr>
                 <br>
                 <input type="text" placeholder="Username">
