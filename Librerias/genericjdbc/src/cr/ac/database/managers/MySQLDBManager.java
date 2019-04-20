@@ -30,7 +30,7 @@ public class MySQLDBManager extends DBManager {
             throws SQLException {
         closeConnection();
         String URL_conexion
-                = String.format("%s//%s/%s", PROTOCOL, serverURL, database);
+                = String.format("%s//%s/%s?useSSL=false", PROTOCOL, serverURL, database);
 
         cnx = DriverManager.getConnection(URL_conexion, user, password);
         return cnx;

@@ -102,14 +102,13 @@ public class GestorEstudiante {
     }
     
     public boolean verificarUsuario(String usuario, String clave) {
-
         boolean encontrado = false;
         DBManager bd = null;
-        try {
+        try{
             bd = DBManager.getDBManager(DBManager.DB_MGR.MYSQL_SERVER);
             Connection cnx
                     = bd.getConnection(BASE_DATOS, LOGIN, PASSWORD);
-
+            
             try (PreparedStatement stm = cnx.prepareStatement(CMD_VERIFICAR)) {
                 stm.clearParameters();
                 stm.setString(1, usuario);
@@ -117,17 +116,16 @@ public class GestorEstudiante {
                 ResultSet rs = stm.executeQuery();
                 encontrado = rs.next();
             }
-
-        } catch (ClassNotFoundException
-                | IllegalAccessException
-                | InstantiationException
-                | SQLException e) {
-            e.printStackTrace(System.err);
-        } finally {
-            if (bd != null) {
-                bd.closeConnection();
+            
+            finally {
+                if (bd != null) {
+                    bd.closeConnection();
+                }
             }
+        }catch(Exception e){
+            e.printStackTrace();
         }
+        
         return encontrado;
     }
 

@@ -1,60 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>ServicioLogin</servlet-name>
-        <servlet-class>servicios.ServicioLogin</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ServicioDatos</servlet-name>
-        <servlet-class>entidades.estudiante.ServicioDatos</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ServicioLogout</servlet-name>
-        <servlet-class>servicios.ServicioLogout</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ServicioLoginDatos</servlet-name>
-        <servlet-class>servicios.ServicioMatricula</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ServicioMatricular</servlet-name>
-        <servlet-class>servicios.ServicioMatricular</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ServicioHora</servlet-name>
-        <servlet-class>servicio.hora.ServicioHora</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>LoginServicio</servlet-name>
         <servlet-class>servicios.LoginServicio</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>ServicioLogin</servlet-name>
-        <url-pattern>/ServicioLogin</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ServicioDatos</servlet-name>
-        <url-pattern>/ServicioDatos</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ServicioLogout</servlet-name>
-        <url-pattern>/ServicioLogout</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ServicioLoginDatos</servlet-name>
-        <url-pattern>/ServicioLoginDatos</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ServicioMatricular</servlet-name>
-        <url-pattern>/ServicioMatricular</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ServicioHora</servlet-name>
-        <url-pattern>/ServicioHora</url-pattern>
-    </servlet-mapping>
+    <servlet>
+        <servlet-name>LogoutServicio</servlet-name>
+        <servlet-class>servicios.LogoutServicio</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServicio</servlet-name>
         <url-pattern>/LoginServicio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServicio</servlet-name>
+        <url-pattern>/LogoutServicio</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

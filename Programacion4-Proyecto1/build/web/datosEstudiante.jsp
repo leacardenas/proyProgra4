@@ -36,7 +36,9 @@
                     </div>
                 </li>
                 <li><a style="color:#00a3c2" href="datosEstudiante.jsp">ESTUDIANTE</a></li>
-                <li id="logoutOption"><a href="#bye">SALIR <i class="fas fa-sign-out-alt"></i></a></li>
+                <form name = "Formlogout" action = "LogoutServicio" method="POST">
+                    <li id="logoutOption">SALIR <i class="fas fa-sign-out-alt"></i></li>
+                </form>
             </ul>
         </nav>
 
