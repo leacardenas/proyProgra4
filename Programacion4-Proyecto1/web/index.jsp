@@ -51,21 +51,21 @@
             <div class="login-form">
 
                 <%
-                        HttpSession sesionActual;
-                        sesionActual = request.getSession(true);
-                        sesionActual.invalidate();
-                        sesionActual = request.getSession(true);
+                    HttpSession sesionActual;
+                    sesionActual = request.getSession(true);
+                    sesionActual.invalidate();
+                    sesionActual = request.getSession(true);
                 %>
 
                 <h1>Login</h1>
                 <hr>
                 <br>
                 <form name = "Formlogin" action = "LoginServicio" method="POST">
-                <input type="text" placeholder="Username" name = "usuario" id = "usuario">
-                <br>
-                <input type="password" placeholder="Password" name = "clave" id = "clave">
-                <br>
-                <button class="login-btn"><i class="fas fa-sign-in-alt"></i> Login</button>
+                    <input type="text" placeholder="Username" name = "usuario" id = "usuario">
+                    <br>
+                    <input type="password" placeholder="Password" name = "clave" id = "clave">
+                    <br>
+                    <button class="login-btn"><i class="fas fa-sign-in-alt"></i> Login</button>
                 </form>
             </div>
         </div>
