@@ -25,7 +25,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
     </head>
 
-    <body style="font-family: 'Raleway', sans-serif !important;">
+    <body>
         <div class="wrapper">
             <div class="login-intro">
                 <button class="sliderButton"><i class="fas fa-plus fa-1x"></i></button>
@@ -61,11 +61,13 @@
                 <h1>Login</h1>
                 <hr>
                 <br>
-                <input type="text" placeholder="Username">
-                <br>
-                <input type="password" placeholder="Password">
-                <br>
-                <a href="datosEstudiante.jsp"><button class="login-btn"><i class="fas fa-sign-in-alt"></i> Login</button></a>
+                <form name = "Formlogin" action = "LoginServicio" method="POST">
+                    <input type="text" placeholder="Username" name = "usuario" id = "usuario">
+                    <br>
+                    <input type="password" placeholder="Password" name = "clave" id = "clave">
+                    <br>
+                    <button class="login-btn"><i class="fas fa-sign-in-alt"></i> Login</button>
+                </form>
             </div>
         </div>
         <script  src="js/login.js"></script>
