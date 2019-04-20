@@ -1,7 +1,15 @@
-<%-- 
-    Document   : index
-    Created on : Apr 16, 2019, 6:30:30 PM
-    Author     : Lea
+<%--
+// index.jsp
+//
+// EIF209 - Programación 4 – Proyecto #1
+// Abril 2019
+//
+// Autores:
+// - 000000000 Bryan Garro Eduarte
+// - 000000000 Fiorella Salgado Rodriguez
+// - 116870078 Lea Cárdenas Alpízar
+// - 000000000 Moises Moraga Alfaro
+//
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,30 +20,31 @@
         <meta charset="UTF-8">
         <title>Login</title>
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/login.css">
+        <link href="css/default.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
     </head>
 
-    <body>
+    <body style="font-family: 'Raleway', sans-serif !important;">
         <div class="wrapper">
             <div class="login-intro">
-                <button class="sliderButton"><i class="fas fa-chevron-down fa-1x"></i></button>
+                <button class="sliderButton"><i class="fas fa-plus fa-1x"></i></button>
                 <div class="intro">
                     <h1>
                         Programación 4 
                         <br/>
-                        <span>Proyecto # 1  </span>
-                        <br/>
+                        Proyecto # 1 
+                    </h1>
+                    <h1 style="margin-top: 5%">
+                        Integrantes: 
                     </h1>
                     <h2>
-                        Integrantes: 
-                        <br/>
                         <span>Bryan Garro Eduarte</span>
-                        <br/>
+                        <br/><br/>
                         <span>Fiorella Salgado Rodriguez</span>
-                        <br/>
+                        <br/><br/>
                         <span>Lea Cárdenas Alpízar</span>
-                        <br/>
+                        <br/><br/>
                         <span>Moises Moraga Alfaro</span>
                     </h2>
                 </div>
@@ -43,23 +52,23 @@
             <div class="login-form">
 
                 <%
-                        HttpSession sesionActual;
-                        sesionActual = request.getSession(true);
-                        sesionActual.invalidate();
-                        sesionActual = request.getSession(true);
+                    HttpSession sesionActual;
+                    sesionActual = request.getSession(true);
+                    sesionActual.invalidate();
+                    sesionActual = request.getSession(true);
                 %>
 
-                <p>Login</p>
+                <h1>Login</h1>
                 <hr>
                 <br>
                 <input type="text" placeholder="Username">
                 <br>
                 <input type="password" placeholder="Password">
                 <br>
-                <button class="login-btn">Log In</button>
+                <a href="datosEstudiante.jsp"><button class="login-btn"><i class="fas fa-sign-in-alt"></i> Login</button></a>
             </div>
         </div>
-        <script  src="js/index.js"></script>
+        <script  src="js/login.js"></script>
     </body>
 </html>
 
