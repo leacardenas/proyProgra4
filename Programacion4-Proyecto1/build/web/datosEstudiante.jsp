@@ -39,6 +39,7 @@
                 <li id="logoutOption"><a href="#bye">SALIR <i class="fas fa-sign-out-alt"></i></a></li>
             </ul>
         </nav>
+
         <div id="wrapper">
             <div id="datosPersonales">
                 <h2>Datos personales</h2>
