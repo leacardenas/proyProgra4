@@ -51,10 +51,10 @@
             <div class="login-form">
 
                 <%
-                        HttpSession sesionActual;
-                        sesionActual = request.getSession(true);
-                        sesionActual.invalidate();
-                        sesionActual = request.getSession(true);
+                    HttpSession sesionActual;
+                    sesionActual = request.getSession(true);
+                    sesionActual.invalidate();
+                    sesionActual = request.getSession(true);
                 %>
 
                 <h1>Login</h1>
@@ -64,10 +64,10 @@
                 <br>
                 <input type="password" placeholder="Password">
                 <br>
-                <button class="login-btn"><i class="fas fa-sign-in-alt"></i> Login</button>
+                <a href="datosEstudiante.jsp"><button class="login-btn"><i class="fas fa-sign-in-alt"></i> Login</button></a>
             </div>
         </div>
-        <script  src="js/index.js"></script>
+        <script  src="js/login.js"></script>
     </body>
 </html>
 

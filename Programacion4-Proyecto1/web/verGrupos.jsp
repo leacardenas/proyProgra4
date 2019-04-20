@@ -17,12 +17,13 @@
 <html>
     <head>
         <link href="css/menu.css" rel="stylesheet" type="text/css"/>
+        <link href="css/grupos.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Ver Grupos</title>
     </head>
-    <body>
+    <body style="font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif !important;">
         <nav>
             <ul>
                 <li class="dropdown">

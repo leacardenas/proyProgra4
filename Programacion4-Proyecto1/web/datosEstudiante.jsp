@@ -17,12 +17,14 @@
 <html>
     <head>
         <link href="css/menu.css" rel="stylesheet" type="text/css"/>
+        <link href="css/datos.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="js/datos.js" type="text/javascript"></script>
         <title>Datos</title>
     </head>
-    <body>
+    <body style="font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif !important;">
         <nav>
             <ul>
                 <li class="dropdown">
@@ -36,5 +38,35 @@
                 <li id="logoutOption"><a href="#bye">SALIR <i class="fas fa-sign-out-alt"></i></a></li>
             </ul>
         </nav>
+
+        <div id="wrapper">
+            <div id="datosPersonales">
+                <h2>Datos personales</h2>
+                <table>
+                    <tr>
+                        <th>Identificacion:</th>
+                        <td>116870078</td>
+                    </tr>
+                    <tr>
+                        <th>Nombre:</th>
+                        <td>Lea Cárdenas Alpízar</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Clave:
+                        </th>
+                        <td>
+                            <input type="password" value="claveX" id="myPassword">
+                            <input class="check" type="checkbox" onclick="showPassword()">Mostrar constraseña
+                            <button class="save-btn">Guardar Cambios</button>                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Ultimo Acceso:</th>
+                        <td>4/19/2019 4:15</td>
+                    </tr>
+                </table>
+            </div> 
+        </div>
     </body>
 </html>

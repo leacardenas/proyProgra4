@@ -139,14 +139,6 @@ login-form .login-btn {
   color: #696a86;
 }
 
-login-form .signup-btn {
-  background: transparent;
-  border: 2px solid #fff;
-  border-radius: 2px;
-  color: #fff;
-  margin-left: 30px;
-}
-
 .sliderButton {
   width: 60px;
   height: 60px;
