@@ -1,11 +1,40 @@
-// grupos.css
-//
-// EIF209 - Programación 4 – Proyecto #1
-// Abril 2019
-//
-// Autores:
-// - 000000000 Bryan Garro Eduarte
-// - 000000000 Fiorella Salgado Rodriguez
-// - 116870078 Lea Cárdenas Alpízar
-// - 000000000 Moises Moraga Alfaro
+#tablaGrupos {
+    margin: auto;
+}
+
+#tablaGrupos td {
+    width: 30%;
+}
+
+.tablaInfoGrupo{
+    width: 90%;
+    border: solid 2px black;
+    border-collapse: collapse;
+}
+
+.numeroGrupo td{
+    color: white;
+    background-color: red;
+    text-align: center;
+    border: solid 2px black;
+}
+
+.nombreGrupo td{
+    color: white;
+    background-color: purple;
+    text-align: center;
+    border: solid 2px black;
+}
+
+.integrantes {
+    color: black;
+    background-color: white;
+    text-align: left;
+}
+
+.integrantes td {
+    border-left: solid 2px black;
+}
+
+//Notas: <table class="tablaInfoGrupo" onclick="crearGrupo();"> class agregarla
 //
