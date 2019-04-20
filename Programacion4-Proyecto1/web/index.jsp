@@ -60,11 +60,13 @@
                 <h1>Login</h1>
                 <hr>
                 <br>
-                <input type="text" placeholder="Username">
+                <form name = "Formlogin" action = "LoginServicio" method="POST">
+                <input type="text" placeholder="Username" name = "usuario" id = "usuario">
                 <br>
-                <input type="password" placeholder="Password">
+                <input type="password" placeholder="Password" name = "clave" id = "clave">
                 <br>
                 <button class="login-btn"><i class="fas fa-sign-in-alt"></i> Login</button>
+                </form>
             </div>
         </div>
         <script  src="js/index.js"></script>

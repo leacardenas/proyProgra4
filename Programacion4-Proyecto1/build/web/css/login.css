@@ -1,0 +1,171 @@
+// login.css
+//
+// EIF209 - Programación 4 – Proyecto #1
+// Abril 2019
+//
+// Autores:
+// - 000000000 Bryan Garro Eduarte
+// - 000000000 Fiorella Salgado Rodriguez
+// - 116870078 Lea Cárdenas Alpízar
+// - 000000000 Moises Moraga Alfaro
+//
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: #e7e7e7;
+}
+
+.wrapper {
+  width: 800px;
+  height: 600px;
+  position: relative;
+  margin: 0.5% auto;
+  box-shadow: 2px 18px 70px 0px #9D9D9D;
+  overflow: hidden;
+}
+
+.intro {
+  color: #fff;
+  display: none;
+  transition: all 0.5s ease-in-out;
+  transition-delay: 0.3s;
+  text-align: center;
+}
+.intro a, .intro a:visited {
+  font-size: 36px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+}
+.intro hr {
+  width: 10%;
+  float: left;
+  background-color: #fff;
+  font-size: 16px;
+}
+
+.intro button {
+  margin-top: 60px;
+  height: 40px;
+  width: 140px;
+  outline: none;
+}
+
+.intro h1 {
+  font-size: 35px;
+  margin-top: 10%;
+  color: #29308a;
+}
+
+.intro h2 {
+  font-size: 25px;
+  color: #29308a;
+}
+
+.intro h2 span {
+  color: #000;
+  font-weight: bolder;
+}
+
+.intro h1 span {
+  color: #333;
+  font-weight: bolder;
+}
+
+.login-intro {
+  width: 800px;
+  height: 590px;
+  background: linear-gradient(to left, #007086, #e7e7e7);
+  position: absolute;
+  top: -370px;
+  box-sizing: border-box;
+  padding: 6%;
+  transition: all 0.5s ease-in-out;
+  z-index: 11;
+}
+
+.login-form {
+  background-color: #fff;
+  width: 800px;
+  position: absolute;
+  bottom: 0;
+  padding: 10%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.login-form button {
+  height: 40px;
+  width: 180px;
+  border: none;
+  border-radius: 20px;
+  background: linear-gradient(to left, #007086, #e7e7e7);
+  color: #007086;
+  font-weight: bolder;
+  margin-top: 30px;
+  cursor: pointer;
+  outline: none;
+}
+
+.login-form p{
+    font-size: larger;
+    font-weight: 700;
+}
+
+.login-form button:hover{
+    color:#fff;
+    background: linear-gradient(to left, #e7e7e7, #007086);
+}
+
+.login-form input {
+  margin-top: 10px;
+  height: 40px;
+  width: 300px;
+  border-radius: 2px;
+  border: none;
+  background-color: #d1d8db;
+  opacity: 0.6;
+  outline: none;
+  color: #000;
+  padding-left: 10px;
+  font-size: 120%;
+}
+
+login-form .login-btn {
+  background: #fff;
+  border: none;
+  border-radius: 2px;
+  color: #696a86;
+}
+
+login-form .signup-btn {
+  background: transparent;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  color: #fff;
+  margin-left: 30px;
+}
+
+.sliderButton {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #cccbcb;
+  border: 2px solid #fff;
+  position: absolute;
+  bottom: -30px;
+  left: 370px;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  z-index: 11;
+}
+
+.show-hide {
+  display: block;
+}
+
+.expand {
+  transform: translateY(300px);
+}

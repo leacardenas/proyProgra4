@@ -8,12 +8,12 @@ sliderButton.addEventListener('click', function(e){
     loginText.classList.toggle('expand');
     if(open === 0)
     {
-        sliderButton.innerHTML = "<i class=\"fas fa-chevron-up\"></i>";
+        sliderButton.innerHTML = "<i class=\"fas fa-minus\"></i>";
         open = 1;
     }
     else
     {
-        sliderButton.innerHTML = "<i class=\"fas fa-chevron-down\"></i>";
+        sliderButton.innerHTML = "<i class=\"fas fa-plus\"></i>";
         open = 0;
     }
 });
