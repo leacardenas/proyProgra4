@@ -17,8 +17,11 @@
 <html>
     <head>
         <link href="css/menu.css" rel="stylesheet" type="text/css"/>
+<<<<<<< HEAD
         <link href="css/grupos.css" rel="stylesheet" type="text/css"/>
         <link href="css/default.css" rel="stylesheet" type="text/css"/>
+=======
+>>>>>>> origin/login
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -38,6 +41,7 @@
                 <li id="logoutOption"><a href="#bye">SALIR <i class="fas fa-sign-out-alt"></i></a></li>
             </ul>
         </nav>
+<<<<<<< HEAD
 
         <div id="wrapper">
             <table class="tablaIngreso">
@@ -196,5 +200,7 @@
             </table>
 
         </div>
+=======
+>>>>>>> origin/login
     </body>
 </html>

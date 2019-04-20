@@ -1,3 +1,23 @@
+<<<<<<< HEAD
+=======
+// menu.css
+//
+// EIF209 - Programación 4 – Proyecto #1
+// Abril 2019
+//
+// Autores:
+// - 000000000 Bryan Garro Eduarte
+// - 000000000 Fiorella Salgado Rodriguez
+// - 116870078 Lea Cárdenas Alpízar
+// - 000000000 Moises Moraga Alfaro
+//
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: #e7e7e7;
+}
+
+>>>>>>> origin/login
 ul {
   list-style-type: none;
   margin: 0;

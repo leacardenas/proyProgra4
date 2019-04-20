@@ -24,6 +24,10 @@
         <servlet-name>ServicioHora</servlet-name>
         <servlet-class>servicio.hora.ServicioHora</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginServicio</servlet-name>
+        <servlet-class>servicios.LoginServicio</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServicioLogin</servlet-name>
         <url-pattern>/ServicioLogin</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>ServicioHora</servlet-name>
         <url-pattern>/ServicioHora</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServicio</servlet-name>
+        <url-pattern>/LoginServicio</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
