@@ -45,25 +45,25 @@
                 <table>
                     <tr>
                         <th>Identificacion:</th>
-                        <td>116870078</td>
+                        <td>%s</td>
                     </tr>
                     <tr>
                         <th>Nombre:</th>
-                        <td>Lea Cárdenas Alpízar</td>
+                        <td>%s</td>
                     </tr>
                     <tr>
                         <th>
                             Clave:
                         </th>
                         <td>
-                            <input type="password" value="claveX" id="myPassword">
+                            <input type="password" value="%s" id="myPassword">
                             <input class="check" type="checkbox" onclick="showPassword()">Mostrar constraseña
                             <button class="save-btn">Guardar Cambios</button>                            
                         </td>
                     </tr>
                     <tr>
                         <th>Ultimo Acceso:</th>
-                        <td>4/19/2019 4:15</td>
+                        <td>%s</td>
                     </tr>
                 </table>
             </div> 

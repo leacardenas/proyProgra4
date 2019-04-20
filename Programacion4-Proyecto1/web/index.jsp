@@ -24,7 +24,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
     </head>
 
-    <body>
+    <body style="font-family: 'Raleway', sans-serif !important;">
         <div class="wrapper">
             <div class="login-intro">
                 <button class="sliderButton"><i class="fas fa-plus fa-1x"></i></button>
