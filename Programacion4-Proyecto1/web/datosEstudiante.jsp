@@ -18,13 +18,14 @@
     <head>
         <link href="css/menu.css" rel="stylesheet" type="text/css"/>
         <link href="css/datos.css" rel="stylesheet" type="text/css"/>
+        <link href="css/default.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="js/datos.js" type="text/javascript"></script>
         <title>Datos</title>
     </head>
-    <body style="font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif !important;">
+    <body>
         <nav>
             <ul>
                 <li class="dropdown">

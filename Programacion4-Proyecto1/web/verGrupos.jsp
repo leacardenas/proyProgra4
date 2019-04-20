@@ -23,7 +23,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Ver Grupos</title>
     </head>
-    <body style="font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif !important;">
+    <body>
         <nav>
             <ul>
                 <li class="dropdown">
