@@ -29,6 +29,7 @@ public class Estudiantes {
     private Integer grupo_id;
 
     public Estudiantes() {
+        ultimo_acceso = new Date();
     }
 
     public Estudiantes(String id, String nombre, String apellidos, Integer nrc, Integer secuencia, String clave, Date ultimo_acceso, Integer grupo_id) {
@@ -107,7 +108,7 @@ public class Estudiantes {
     }
     
     public String nombreCompleto(){
-        String nom = this.nombre + this.apellidos;
+        String nom = this.nombre + " " + this.apellidos;
         return nom;
     }
     

@@ -5,16 +5,16 @@
         <servlet-class>servicios.LoginServicio</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>LogoutServicio</servlet-name>
-        <servlet-class>servicios.LogoutServicio</servlet-class>
+        <servlet-name>EditarConstrasennaServicio</servlet-name>
+        <servlet-class>servicios.EditarConstrasennaServicio</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServicio</servlet-name>
         <url-pattern>/LoginServicio</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>LogoutServicio</servlet-name>
-        <url-pattern>/LogoutServicio</url-pattern>
+        <servlet-name>EditarConstrasennaServicio</servlet-name>
+        <url-pattern>/EditarConstrasennaServicio</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -6,17 +6,19 @@
 package servicios;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import modelo.dao.GestorEstudiante;
 
 /**
  *
  * @author Pc
  */
-public class LogoutServicio extends HttpServlet {
+public class EditarConstrasennaServicio extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,11 +33,15 @@ public class LogoutServicio extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
          response.setHeader("cache-control", "no-cache, no-store, must-revalidate");
+       GestorEstudiante gUsuarios = GestorEstudiante.obtenerInstancia();
+
+       String clave = request.getParameter("clave");
 
         HttpSession sesion = request.getSession(true);
-        sesion.removeAttribute("usuario");
-        sesion.invalidate();
-        response.sendRedirect("index.jsp");
+        String usuario = (String) sesion.getAttribute("usuario");
+        gUsuarios.cambiarContrasenna(usuario, clave);
+        
+        response.sendRedirect("datosEstudiante.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

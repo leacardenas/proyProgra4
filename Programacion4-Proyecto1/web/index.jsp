@@ -19,10 +19,9 @@
     <head>
         <meta charset="UTF-8">
         <title>Login</title>
-        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <link rel="stylesheet" href="css/login.css">
         <link href="css/default.css" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
+        <jsp:directive.include file="fonts.jsp" />
     </head>
 
     <body>
@@ -54,6 +53,7 @@
                 <%
                     HttpSession sesionActual;
                     sesionActual = request.getSession(true);
+                    sesionActual.removeAttribute("usuario");
                     sesionActual.invalidate();
                     sesionActual = request.getSession(true);
                 %>

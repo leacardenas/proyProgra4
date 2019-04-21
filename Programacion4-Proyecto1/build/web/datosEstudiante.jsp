@@ -12,6 +12,7 @@
 //
 --%>
 
+<%@page import="modelo.dao.GestorEstudiante"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,10 +20,9 @@
         <link href="css/menu.css" rel="stylesheet" type="text/css"/>
         <link href="css/datos.css" rel="stylesheet" type="text/css"/>
         <link href="css/default.css" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
-        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="js/datos.js" type="text/javascript"></script>
+        <jsp:directive.include file="fonts.jsp" />
         <title>Datos</title>
     </head>
     <body>
@@ -36,39 +36,19 @@
                     </div>
                 </li>
                 <li><a style="color:#00a3c2" href="datosEstudiante.jsp">ESTUDIANTE</a></li>
-                <form name = "Formlogout" action = "LogoutServicio" method="POST">
-                    <li id="logoutOption">SALIR <i class="fas fa-sign-out-alt"></i></li>
-                </form>
+                <li id="logoutOption"><a href="index.jsp">SALIR <i class="fas fa-sign-out-alt"></i></a></li>
             </ul>
         </nav>
 
         <div id="wrapper">
             <div id="datosPersonales">
                 <h2>Datos personales</h2>
-                <table>
-                    <tr>
-                        <th>Identificacion:</th>
-                        <td>%s</td>
-                    </tr>
-                    <tr>
-                        <th>Nombre:</th>
-                        <td>%s</td>
-                    </tr>
-                    <tr>
-                        <th>
-                            Clave:
-                        </th>
-                        <td>
-                            <input type="password" value="%s" id="myPassword">
-                            <input class="check" type="checkbox" onclick="showPassword()">Mostrar constraseña
-                            <button class="save-btn">Guardar Cambios</button>                            
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Ultimo Acceso:</th>
-                        <td>%s</td>
-                    </tr>
-                </table>
+                <%
+                    HttpSession sesionActual = request.getSession(true);
+                    Object usuario = sesionActual.getAttribute("usuario");
+
+                    out.print(GestorEstudiante.obtenerInstancia().imprimirUsuario(usuario.toString()));
+                %>
             </div> 
         </div>
     </body>

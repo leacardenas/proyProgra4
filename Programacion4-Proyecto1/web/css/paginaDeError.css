@@ -1,0 +1,12 @@
+h2 {
+    color: red;
+}
+
+#contents {
+    background-color: #fff;
+    width: 800px;
+    padding: 6%;
+    box-sizing: border-box;
+    text-align: center;
+    margin: auto;
+}

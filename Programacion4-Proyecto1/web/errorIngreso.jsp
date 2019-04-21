@@ -9,22 +9,25 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/default.css" rel="stylesheet" type="text/css"/>
+        <link href="css/paginaDeError.css" rel="stylesheet" type="text/css"/>
         <script src="scripts.js" type="text/javascript"></script>
          <link rel="stylesheet" href="estilos/index.css" type="text/css">
+         <jsp:directive.include file="fonts.jsp" />
         <title>Error de Ingreso</title>
     </head>
     <body>
         <div id = "wrapper">
             <div id ="contents"> 
             <h2>
-                    <span style="color: red; font-weight: bold;">Error de ingreso</span>
+                    <span>Error de ingreso</span>
                 </h2>
                 <p><strong>No ha iniciado la sesión.</strong><br />
                     Esto puede deberse a que la sesión ha expirado
                     o que los datos
                     de ingreso son incorrectos.</p>
                 <p>
-                    <span style="color:red">
+                    <span>
                         <%
                             int codError = 0;
                             String mensaje = "(Error sin determinar)";
@@ -49,10 +52,11 @@
                 <p>Haga clic <a href="index.jsp">aqu&iacute;</a>
                     para ingresar al sitio.<br />
                 </p>
-            </div>
+                
                 <section>
-                    
+                    <i style="color:red; font-size: 100px" class="far fa-frown"></i>
                 </section>
+            </div>
         </div>
     </body>
 </html>

@@ -49,6 +49,8 @@ public class LoginServicio extends HttpServlet {
             HttpSession sesion = request.getSession(true);
             sesion.setAttribute("usuario", usuario);
             
+            gUsuarios.cambiarUltimoAcceso(usuario);
+            
             sesion.setMaxInactiveInterval(60 * 3);
             
             response.sendRedirect("datosEstudiante.jsp");
