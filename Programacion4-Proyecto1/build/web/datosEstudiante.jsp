@@ -46,8 +46,17 @@
                 <%
                     HttpSession sesionActual = request.getSession(true);
                     Object usuario = sesionActual.getAttribute("usuario");
-
+                    long transcurrido = System.currentTimeMillis() - sesionActual.getLastAccessedTime();
+                    
+                    if (request.getSession(true).getAttribute("usuario") == null) {
+                    request.getRequestDispatcher("errorIngreso.jsp").forward(request, response);
+                    }
+                    if (transcurrido > (1000 * 60 * 5)) {
+                        request.getRequestDispatcher("errorIngreso.jsp?error=1").forward(request, response);
+                    }else{
                     out.print(GestorEstudiante.obtenerInstancia().imprimirUsuario(usuario.toString()));
+                    }
+                    
                 %>
             </div> 
         </div>

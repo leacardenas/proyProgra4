@@ -36,5 +36,5 @@ public class ConnectionTest {
 
     private static final String DATABASE = "test";
     private static final String USER = "root";
-    private static final String PASSWORD = "";
+    private static final String PASSWORD = "root";
 }

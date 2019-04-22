@@ -90,6 +90,7 @@ public class GestorEstudiante {
     public ArrayList<Object[]> obtenerLista() {
         ArrayList<Object[]> usuarios = new ArrayList<>();
         try {
+            DriverManager.registerDriver (new com.mysql.jdbc.Driver());
             Connection cnx = DriverManager.getConnection(CONEXION, LOGIN, PASSWORD);
 
             Statement stm = cnx.createStatement();
@@ -136,6 +137,7 @@ public class GestorEstudiante {
     public boolean verificarUsuario(String usuario, String clave) {
         boolean encontrado = false;
         try {
+            DriverManager.registerDriver (new com.mysql.jdbc.Driver());
             Connection cnx = DriverManager.getConnection(CONEXION, LOGIN, PASSWORD);
 
             try (PreparedStatement stm = cnx.prepareStatement(CMD_VERIFICAR)) {
@@ -157,6 +159,7 @@ public class GestorEstudiante {
         try {
             java.sql.Timestamp dateDB = new Timestamp(System.currentTimeMillis());
             
+            DriverManager.registerDriver (new com.mysql.jdbc.Driver());
             Connection cnx = DriverManager.getConnection(CONEXION, LOGIN, PASSWORD);
 
             try (PreparedStatement stm = cnx.prepareStatement(MODIFICAR_USUARIO_FECHA)) {
@@ -174,6 +177,7 @@ public class GestorEstudiante {
 
     public void cambiarContrasenna(String estudiante, String contrasenna) {
         try {
+            DriverManager.registerDriver (new com.mysql.jdbc.Driver());
             Connection cnx = DriverManager.getConnection(CONEXION, LOGIN, PASSWORD);
 
             try (PreparedStatement stm = cnx.prepareStatement(MODIFICAR_USUARIO_CONTRASENNA)) {
@@ -191,6 +195,7 @@ public class GestorEstudiante {
     public Estudiantes obtenerUsuario(String usuario) {
         Estudiantes est = new Estudiantes();
         try {
+            DriverManager.registerDriver (new com.mysql.jdbc.Driver());
             Connection cnx = DriverManager.getConnection(CONEXION, LOGIN, PASSWORD);
 
             try (PreparedStatement stm = cnx.prepareStatement(OBTENER_USUARIO)) {
