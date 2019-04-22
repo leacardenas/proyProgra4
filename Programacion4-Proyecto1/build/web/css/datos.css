@@ -1,0 +1,41 @@
+#myPassword {
+    border: none;
+    border-bottom: solid 1px black;
+    width: 25%;
+    font-size: inherit;
+    background-color: #e7e7e7;
+}
+
+.save-btn {
+  color: #00a3c2;
+  border: solid 1px #00a3c2;
+  margin-left: 20px;
+}
+
+#datosPersonales {
+    margin: 15px;
+}
+
+#datosPersonales h2 {
+    color: #00a3c2;
+    font-size: 30px;
+    border-bottom: dotted 2px #00a3c2;
+}
+
+#datosPersonales table {
+    width: 100%;
+    height: 50%;
+}
+
+#datosPersonales th {
+    width: 30%;
+    height: 50px;
+}
+
+#datosPersonales td {
+    width: 100%;
+}
+
+#datosPersonales .check {
+    margin-left: 20px;
+}
