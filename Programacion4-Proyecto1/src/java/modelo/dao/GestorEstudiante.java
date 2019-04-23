@@ -30,22 +30,22 @@ public class GestorEstudiante {
     private static final String CONEXION = "jdbc:mysql://localhost/proy_progra4?useSSL=false";
 
     private static final String CMD_LISTAR
-            = "SELECT id, nrc,apellidos,nombre,secuencia,clave,ultimo_acceso,grupo_id "
-            + "FROM estudiante ORDER BY id ";
+            = "SELECT estudiante_id,estudiante_nrc,estudiante_apellidos,estudiante_nombre,estudiante_secuencia,estudiante_clave,estudiante_ultimo_acceso,estudiante_grupo_id "
+            + "FROM estudiante ORDER BY estudiante_id ";
 
     private static final String CMD_VERIFICAR
-            = "SELECT id FROM estudiante "
-            + "WHERE id=? AND clave=? ";
+            = "SELECT estudiante_id FROM estudiante "
+            + "WHERE estudiante_id=? AND estudiante_clave=? ";
     private static final String OBTENER_USUARIO
             = "SELECT * FROM estudiante "
-            + "WHERE id=?";
+            + "WHERE estudiante_id=?";
     private static final String MODIFICAR_USUARIO_CONTRASENNA
             = "UPDATE `proy_progra4`.`estudiante` "
-            + "SET `clave`=? WHERE `id`=?";
+            + "SET `estudiante_clave`=? WHERE `estudiante_id`=?";
     
     private static final String MODIFICAR_USUARIO_FECHA
             = "UPDATE `proy_progra4`.`estudiante` "
-            + "SET `ultimo_acceso`=? WHERE `id`=?";
+            + "SET `estudiante_ultimo_acceso`=? WHERE `estudiante_id`=?";
 
     private static final String IMPRIMIR_DATOS = "<table>\n"
             + "<tr>\n"
@@ -204,14 +204,14 @@ public class GestorEstudiante {
                 ResultSet rs = stm.executeQuery();
 
                 while (rs.next()) {
-                    String id = rs.getString("id");
-                    Integer nrc = rs.getInt("nrc");
-                    String apellidos = rs.getString("apellidos");
-                    String nombre = rs.getString("nombre");
-                    Integer secuencia = rs.getInt("secuencia");
-                    String clave = rs.getString("clave");
-                    Date ultimo_acceso = rs.getTimestamp("ultimo_acceso");
-                    Integer grupo_id = rs.getInt("grupo_id");
+                    String id = rs.getString("estudiante_id");
+                    Integer nrc = rs.getInt("estudiante_nrc");
+                    String apellidos = rs.getString("estudiante_apellidos");
+                    String nombre = rs.getString("estudiante_nombre");
+                    Integer secuencia = rs.getInt("estudiante_secuencia");
+                    String clave = rs.getString("estudiante_clave");
+                    Date ultimo_acceso = rs.getTimestamp("estudiante_ultimo_acceso");
+                    Integer grupo_id = rs.getInt("estudiante_grupo_id");
                     est = new Estudiantes(id, nombre, apellidos, nrc, secuencia, clave, ultimo_acceso, grupo_id);
                 }
             }

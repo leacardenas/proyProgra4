@@ -12,6 +12,7 @@
         <link href="css/default.css" rel="stylesheet" type="text/css"/>
         <link href="css/paginaDeError.css" rel="stylesheet" type="text/css"/>
         <script src="scripts.js" type="text/javascript"></script>
+        <link rel="shortcut icon" type="image/png" href="https://img.icons8.com/ultraviolet/100/000000/user-group-man-man.png" />
          <link rel="stylesheet" href="estilos/index.css" type="text/css">
          <jsp:directive.include file="fonts.jsp" />
         <title>Error de Ingreso</title>

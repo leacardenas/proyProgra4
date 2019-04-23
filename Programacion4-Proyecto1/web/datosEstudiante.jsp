@@ -20,6 +20,7 @@
         <link href="css/menu.css" rel="stylesheet" type="text/css"/>
         <link href="css/datos.css" rel="stylesheet" type="text/css"/>
         <link href="css/default.css" rel="stylesheet" type="text/css"/>
+        <link rel="shortcut icon" type="image/png" href="https://img.icons8.com/ultraviolet/100/000000/user-group-man-man.png" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="js/datos.js" type="text/javascript"></script>
         <jsp:directive.include file="fonts.jsp" />
