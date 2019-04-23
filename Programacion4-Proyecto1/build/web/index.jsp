@@ -21,6 +21,7 @@
         <title>Login</title>
         <link rel="stylesheet" href="css/login.css">
         <link href="css/default.css" rel="stylesheet" type="text/css"/>
+        <link rel="shortcut icon" type="image/png" href="https://img.icons8.com/ultraviolet/100/000000/user-group-man-man.png" />
         <jsp:directive.include file="fonts.jsp" />
     </head>
 

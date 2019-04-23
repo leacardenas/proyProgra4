@@ -19,6 +19,7 @@
         <link href="css/menu.css" rel="stylesheet" type="text/css"/>
         <link href="css/grupos.css" rel="stylesheet" type="text/css"/>
         <link href="css/default.css" rel="stylesheet" type="text/css"/>
+        <link rel="shortcut icon" type="image/png" href="https://img.icons8.com/ultraviolet/100/000000/user-group-man-man.png" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <jsp:directive.include file="fonts.jsp" />
         <title>Manejar Grupos</title>
@@ -39,6 +40,19 @@
         </nav>
 
         <div id="wrapper">
+            <%
+                    HttpSession sesionActual = request.getSession(true);
+                    Object usuario = sesionActual.getAttribute("usuario");
+                    long transcurrido = System.currentTimeMillis() - sesionActual.getLastAccessedTime();
+                    
+                    if (request.getSession(true).getAttribute("usuario") == null) {
+                    request.getRequestDispatcher("errorIngreso.jsp").forward(request, response);
+                    }
+                    if (transcurrido > (1000 * 60 * 5)) {
+                        request.getRequestDispatcher("errorIngreso.jsp?error=1").forward(request, response);
+                    }
+                    
+                %>
             <table class="tablaIngreso">
                 <tbody>
                     <tr>

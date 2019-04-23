@@ -11,61 +11,31 @@ package modelo;
  * @author fiore
  */
 public class Grupo {
-    private Integer id;
-    private Integer secuencia;
-    private String nombre;
-    private Integer cupo;
-    private Boolean activo;
+    private Integer grupo_id;
+    private String grupo_nombre;
 
     public Grupo() {
     }
 
-    public Grupo(Integer id, Integer secuencia, String nombre, Integer cupo, Boolean activo) {
-        this.id = id;
-        this.secuencia = secuencia;
-        this.nombre = nombre;
-        this.cupo = cupo;
-        this.activo = activo;
+    public Grupo(Integer grupo_id, String grupo_nombre) {
+        this.grupo_id = grupo_id;
+        this.grupo_nombre = grupo_nombre;
     }
 
     public Integer getId() {
-        return id;
+        return grupo_id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getSecuencia() {
-        return secuencia;
-    }
-
-    public void setSecuencia(Integer secuencia) {
-        this.secuencia = secuencia;
+    public void setId(Integer grupo_id) {
+        this.grupo_id = grupo_id;
     }
 
     public String getNombre() {
-        return nombre;
+        return grupo_nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public Integer getCupo() {
-        return cupo;
-    }
-
-    public void setCupo(Integer cupo) {
-        this.cupo = cupo;
-    }
-
-    public Boolean getActivo() {
-        return activo;
-    }
-
-    public void setActivo(Boolean activo) {
-        this.activo = activo;
+    public void setNombre(String grupo_nombre) {
+        this.grupo_nombre = grupo_nombre;
     }
     
 }
