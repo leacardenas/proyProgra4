@@ -19,120 +19,120 @@ import static org.apache.commons.text.StringEscapeUtils.ESCAPE_HTML4;
  * @author fiore
  */
 public class Estudiantes {
-    private String id;
-    private String nombre;
-    private String apellidos;
-    private Integer nrc;
-    private Integer secuencia;
-    private String clave;
-    private Date ultimo_acceso;
-    private Integer grupo_id;
+    private String estudiante_id;
+    private String estudiante_nombre;
+    private String estudiante_apellidos;
+    private Integer estudiante_nrc;
+    private Integer estudiante_secuencia;
+    private String estudiante_clave;
+    private Date estudiante_ultimo_acceso;
+    private Integer estudiante_grupo_id;
 
     public Estudiantes() {
-        ultimo_acceso = new Date();
+        estudiante_ultimo_acceso = new Date();
     }
 
-    public Estudiantes(String id, String nombre, String apellidos, Integer nrc, Integer secuencia, String clave, Date ultimo_acceso, Integer grupo_id) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.nrc = nrc;
-        this.secuencia = secuencia;
-        this.clave = clave;
-        this.ultimo_acceso = ultimo_acceso;
-        this.grupo_id = grupo_id;
+    public Estudiantes(String estudiante_id, String estudiante_nombre, String estudiante_apellidos, Integer estudiante_nrc, Integer estudiante_secuencia, String estudiante_clave, Date estudiante_ultimo_acceso, Integer estudiante_grupo_id) {
+        this.estudiante_id = estudiante_id;
+        this.estudiante_nombre = estudiante_nombre;
+        this.estudiante_apellidos = estudiante_apellidos;
+        this.estudiante_nrc = estudiante_nrc;
+        this.estudiante_secuencia = estudiante_secuencia;
+        this.estudiante_clave = estudiante_clave;
+        this.estudiante_ultimo_acceso = estudiante_ultimo_acceso;
+        this.estudiante_grupo_id = estudiante_grupo_id;
     }
 
     public String getId() {
-        return id;
+        return estudiante_id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(String estudiante_id) {
+        this.estudiante_id = estudiante_id;
     }
 
     public String getNombre() {
-        return nombre;
+        return estudiante_nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(String estudiante_nombre) {
+        this.estudiante_nombre = estudiante_nombre;
     }
 
     public String getApellidos() {
-        return apellidos;
+        return estudiante_apellidos;
     }
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setApellidos(String estudiante_apellidos) {
+        this.estudiante_apellidos = estudiante_apellidos;
     }
 
     public Integer getNrc() {
-        return nrc;
+        return estudiante_nrc;
     }
 
-    public void setNrc(Integer nrc) {
-        this.nrc = nrc;
+    public void setNrc(Integer estudiante_nrc) {
+        this.estudiante_nrc = estudiante_nrc;
     }
 
     public Integer getSecuencia() {
-        return secuencia;
+        return estudiante_secuencia;
     }
 
-    public void setSecuencia(Integer secuencia) {
-        this.secuencia = secuencia;
+    public void setSecuencia(Integer estudiante_secuencia) {
+        this.estudiante_secuencia = estudiante_secuencia;
     }
 
     public String getClave() {
-        return clave;
+        return estudiante_clave;
     }
 
-    public void setClave(String clave) {
-        this.clave = clave;
+    public void setClave(String estudiante_clave) {
+        this.estudiante_clave = estudiante_clave;
     }
 
     public Date getUltimo_acceso() {
-        return ultimo_acceso;
+        return estudiante_ultimo_acceso;
     }
 
-    public void setUltimo_acceso(Date ultimo_acceso) {
-        this.ultimo_acceso = ultimo_acceso;
+    public void setUltimo_acceso(Date estudiante_ultimo_acceso) {
+        this.estudiante_ultimo_acceso = estudiante_ultimo_acceso;
     }
 
     public Integer getGrupo_id() {
-        return grupo_id;
+        return estudiante_grupo_id;
     }
 
-    public void setGrupo_id(Integer grupo_id) {
-        this.grupo_id = grupo_id;
+    public void setGrupo_id(Integer estudiante_grupo_id) {
+        this.estudiante_grupo_id = estudiante_grupo_id;
     }
     
     public String nombreCompleto(){
-        String nom = this.nombre + " " + this.apellidos;
+        String nom = this.estudiante_nombre + " " + this.estudiante_apellidos;
         return nom;
     }
     
     public static Estudiantes fromArray(ArrayList<String> datos) throws ParseException{
         String idUsuario = datos.get(0);
-        String nombre = datos.get(1);
-        String apellidos = datos.get(2);
-        String nrc = datos.get(3);
-        String secuencia = datos.get(4);
+        String estudiante_nombre = datos.get(1);
+        String estudiante_apellidos = datos.get(2);
+        String estudiante_nrc = datos.get(3);
+        String estudiante_secuencia = datos.get(4);
         String password = datos.get(5);
-        String ultimo_acceso = datos.get(6);
+        String estudiante_ultimo_acceso = datos.get(6);
         String grupo_Id = datos.get(7);
         
         
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
-        Date acceso = formatter.parse(ultimo_acceso);
+        Date acceso = formatter.parse(estudiante_ultimo_acceso);
 
-        Integer nrc1 = Integer.parseInt(nrc);
-        Integer sec = Integer.parseInt(secuencia);
+        Integer nrc1 = Integer.parseInt(estudiante_nrc);
+        Integer sec = Integer.parseInt(estudiante_secuencia);
         Integer grupo = Integer.parseInt(grupo_Id);
         
         
         
-        return new Estudiantes(idUsuario,nombre,apellidos,nrc1,
+        return new Estudiantes(idUsuario,estudiante_nombre,estudiante_apellidos,nrc1,
         sec,password,acceso,grupo);
     }
     
@@ -163,11 +163,11 @@ public class Estudiantes {
             + "<tr><td class=\"etiqueta\">Grupo:</td><td class=\"datos\">%s</td></tr>";
      
     public String toHTMLString() {
-        String m = nombre + " " + apellidos;
-        String d = this.dateToString(ultimo_acceso);
-        String g = String.valueOf(this.grupo_id);
+        String m = estudiante_nombre + " " + estudiante_apellidos;
+        String d = this.dateToString(estudiante_ultimo_acceso);
+        String g = String.valueOf(this.estudiante_grupo_id);
             return String.format(FORMATO_REGISTRO_HTML,
-                    StringEscapeUtils.builder(ESCAPE_HTML4).escape(id),
+                    StringEscapeUtils.builder(ESCAPE_HTML4).escape(estudiante_id),
                     StringEscapeUtils.builder(ESCAPE_HTML4).escape(m),
                     StringEscapeUtils.builder(ESCAPE_HTML4).escape(d),
                     StringEscapeUtils.builder(ESCAPE_HTML4).escape(g)
