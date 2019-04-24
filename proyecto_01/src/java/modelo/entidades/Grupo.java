@@ -49,6 +49,10 @@ public class Grupo {
         estudiantes= new ArrayList<Estudiante>();
     }
 
+    public Grupo(String nombre) {
+        this.nombre = nombre;
+    }
+
     public Grupo() {
         estudiantes= new ArrayList<Estudiante>();
     }

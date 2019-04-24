@@ -22,7 +22,7 @@ public class Totalidad_De_Grupos {
         
         for (int i=0;i< grupos.size();i++){
             if(conttd==tdCant){
-                r.append("<tr>");
+                r.append("<tr id=\"tr"+grupos.get(i).getId()+"\">");
                 r.append("<td>");
                 r.append(grupos.get(i).toHTML());
                 r.append("</td>");

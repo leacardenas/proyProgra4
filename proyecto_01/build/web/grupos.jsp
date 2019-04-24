@@ -7,6 +7,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="gruposScript.js" type="text/javascript"></script>
         <link href="grupos.css" rel="stylesheet" type="text/css"/>
+        
         <title>Grupos</title>
     </head>
     <body id="mainElement">
@@ -21,11 +22,12 @@
             </td>
         </tr><tr>
             <td align="center" colspan="2">
-                <button type="button" onclick="crearGrupo();">Crear Grupo </button>
+                <button type="button" onclick="procesoCrearGrupo();">Crear Grupo </button>
             </td>
         </tr>
         </table>
         <table id="tablaGrupos" onload="init();">
+            <tbody id="tbodytablaGrupos">
         <%
             HttpSession sesion = request.getSession(true);
             sesion.setAttribute("usuario", "116570271");
@@ -36,7 +38,7 @@ lo primero e invocar al gestor de datos para que me actualice y me traiga todo l
 lo segundo es alerar lo que hace la base de datos mediante fech, en el servidor recibo datos, actualizo la base de datos y genero una respuesta
     generar un tr con 3 o 4 td, cada td va a ser una tabla con formato
 --%>
-
+            </tbody>
         </table>
     </body>
 </html>

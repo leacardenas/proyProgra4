@@ -7,7 +7,9 @@ package modelo.gestores;
 
 import cr.ac.database.managers.DBManager;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,11 +36,17 @@ public class gestorGrupos {
         private static final String LISTAR_GRUPOS
             = "SELECT id,nombre "
             + "FROM grupo;";
+                private static final String OBTENER_ID
+            = "SELECT id "
+            + "FROM grupo WHERE nombre='%s';";
     private static final String LISTAR_EST_POR_GRUPO
             = "SELECT nombre, apellidos, id "
             + "FROM eif209_1901_p01.estudiante WHERE grupo_id='%d';";
     private static gestorGrupos instancia = null;
 //    
+        private static final String CMD_GRUPO="INSERT INTO grupo (nombre) VALUES ('%s');";
+        private static final String CANT_REGISTROS_="SELECT count(*) FROM libros;";
+
 //    private static final String CURSOS_NO_MATRICULADOS = "SELECT id,secuencia,nombre,cupo,activo FROM grupo AS grupo "
 //            + "LEFT JOIN matricula AS matricula ON curso_codigo = curso.codigo AND estudiante_id = '%s' "
 //            + "WHERE curso_codigo IS NULL ORDER BY codigo;";
@@ -92,4 +100,51 @@ public String listaGrupos(){
         
         return tg.toHTML();
     }
+public void creaGrupo(Grupo grupo) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+
+        DBManager bd = null;
+        try {
+            bd = DBManager.getDBManager(DBManager.DB_MGR.MYSQL_SERVER, URL_Servidor);
+            Connection cnx = bd.getConnection(BASE_DATOS, LOGIN, PASSWORD);
+
+            Statement stm = cnx.createStatement();
+            String aux=String.format(CMD_GRUPO,grupo.getNombre());
+            stm.executeUpdate(aux);
+
+        }catch(Exception ex){
+            System.err.printf("Excepción: '%s'%n", ex.getMessage());
+            
+        }
+   
+
+        
+        }   
+    
+public int obtenerIDGrupoPorNombre(String nombre) throws InstantiationException, ClassNotFoundException, IllegalAccessException, SQLException{
+        DBManager bd = null;
+        Totalidad_De_Grupos tg = new Totalidad_De_Grupos();
+     
+            bd = DBManager.getDBManager(DBManager.DB_MGR.MYSQL_SERVER, URL_Servidor);
+            Connection cnx = bd.getConnection(BASE_DATOS, LOGIN, PASSWORD);
+
+            Statement stm = cnx.createStatement();
+            ResultSet grupo = stm.executeQuery(String.format(OBTENER_ID,nombre));
+             grupo.next();
+            int aux=grupo.getInt("id");
+                return aux;
+}
+public int getCantidadRegistros() throws InstantiationException, ClassNotFoundException, IllegalAccessException, SQLException{
+        DBManager bd = null;
+        Totalidad_De_Grupos tg = new Totalidad_De_Grupos();
+     
+            bd = DBManager.getDBManager(DBManager.DB_MGR.MYSQL_SERVER, URL_Servidor);
+            Connection cnx = bd.getConnection(BASE_DATOS, LOGIN, PASSWORD);
+
+            Statement stm = cnx.createStatement();
+            ResultSet grupo = stm.executeQuery(String.format(CANT_REGISTROS_));
+             grupo.next();
+            int aux=grupo.getInt("count");
+                return aux;
+
+}
 }

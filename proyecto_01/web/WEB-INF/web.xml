@@ -4,9 +4,25 @@
         <servlet-name>ServicioCreaGrupo</servlet-name>
         <servlet-class>servicios.ServicioCreaGrupo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>servicioProcesoCrearGrupo</servlet-name>
+        <servlet-class>servicios.servicioProcesoCrearGrupo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>cuentaRegistros</servlet-name>
+        <servlet-class>servicios.cuentaRegistros</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServicioCreaGrupo</servlet-name>
         <url-pattern>/ServicioCreaGrupo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>servicioProcesoCrearGrupo</servlet-name>
+        <url-pattern>/servicioProcesoCrearGrupo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cuentaRegistros</servlet-name>
+        <url-pattern>/cuentaRegistros</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
