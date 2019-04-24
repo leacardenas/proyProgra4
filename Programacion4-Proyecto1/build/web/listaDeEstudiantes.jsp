@@ -1,5 +1,5 @@
 <%--
-// datosEstudiante.jsp
+// listaDeEstudiantes.jsp
 //
 // EIF209 - Programación 4 – Proyecto #1
 // Abril 2019
@@ -47,25 +47,34 @@
             </ul>
         </nav>
 
-        <div id="wrapper">
-            <div id="datosPersonales">
-                <h2>Datos personales</h2>
-                <%
-                    HttpSession sesionActual = request.getSession(true);
-                    Object usuario = sesionActual.getAttribute("usuario");
-                    long transcurrido = System.currentTimeMillis() - sesionActual.getLastAccessedTime();
+        <div id="info">
+            <table id="listas">
+                <td>
+                    <h1>Usuarios</h1>
+                    <table id="listaUsuarios">
+                        <tr>
+                            <th onclick="ordenarTabla(0,'listaUsuarios')">ID</th>
+                            <th onclick="ordenarTabla(1,'listaUsuarios')">Nombre</th>
+                            <th onclick="ordenarTabla(2,'listaUsuarios')">NCR</th>
+                            <th onclick="ordenarTabla(3,'listaUsuarios')">Grupo</th>
+                        </tr>
+                        <%out.print(GestorEstudiante.obtenerInstancia().listarTodosLosUsuariosHTML());%>
+                    </table>
+                </td>
+                <td>
+                    <h1>Usuarios activos</h1>
                     
-                    if (request.getSession(true).getAttribute("usuario") == null) {
-                    request.getRequestDispatcher("errorIngreso.jsp").forward(request, response);
-                    }
-                    if (transcurrido > (1000 * 60 * 5)) {
-                        request.getRequestDispatcher("errorIngreso.jsp?error=1").forward(request, response);
-                    }else{
-                    out.print(GestorEstudiante.obtenerInstancia().imprimirUsuario(usuario.toString()));
-                    }
-                    
-                %>
-            </div> 
+                    <table id="listaUsuariosActivos">
+                        <tr>
+                            <th onclick="ordenarTabla(0,'listaUsuariosActivos')">ID</th>
+                            <th onclick="ordenarTabla(1,'listaUsuariosActivos')">Nombre</th>
+                            <th onclick="ordenarTabla(2,'listaUsuariosActivos')">NCR</th>
+                            <th onclick="ordenarTabla(3,'listaUsuariosActivos')">Ultimo acceso</th>
+                        </tr>
+                        <%out.print(GestorEstudiante.obtenerInstancia().imprimirTablaUsuarioHTML());%>
+                    </table>
+                </td>
+            </table>
         </div>
     </body>
 </html>

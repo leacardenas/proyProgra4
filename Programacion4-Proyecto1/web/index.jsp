@@ -12,6 +12,7 @@
 //
 --%>
 
+<%@page import="modelo.dao.GestorEstudiante"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en" >
@@ -40,25 +41,16 @@
                     </h1>
                     <h2>
                         <span>Bryan Garro Eduarte</span>
-                        <br/><br/>
+                        <br/>
                         <span>Fiorella Salgado Rodriguez</span>
-                        <br/><br/>
+                        <br/>
                         <span>Lea Cárdenas Alpízar</span>
-                        <br/><br/>
+                        <br/>
                         <span>Moises Moraga Alfaro</span>
                     </h2>
                 </div>
             </div>
             <div class="login-form">
-
-                <%
-                    HttpSession sesionActual;
-                    sesionActual = request.getSession(true);
-                    sesionActual.removeAttribute("usuario");
-                    sesionActual.invalidate();
-                    sesionActual = request.getSession(true);
-                %>
-
                 <h1>Login</h1>
                 <hr>
                 <br>
@@ -71,6 +63,21 @@
                 </form>
             </div>
         </div>
+        
+        <%
+            HttpSession sesionActual;
+            sesionActual = request.getSession(true);
+
+            if (sesionActual.getAttribute("usuario") != null) {
+                String usuario = sesionActual.getAttribute("usuario").toString();
+                GestorEstudiante.obtenerInstancia().borrarUsuarioActivo(usuario);
+            }
+
+            sesionActual.removeAttribute("usuario");
+            sesionActual.invalidate();
+            sesionActual = request.getSession(true);
+        %>
+
         <script  src="js/login.js"></script>
     </body>
 </html>

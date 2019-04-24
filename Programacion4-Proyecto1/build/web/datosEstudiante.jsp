@@ -36,7 +36,13 @@
                         <a href="manejarGrupos.jsp">MANEJAR GRUPOS</a>
                     </div>
                 </li>
-                <li><a style="color:#00a3c2" href="datosEstudiante.jsp">ESTUDIANTE</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn" style="color:#00a3c2">ESTUDIANTES</a>
+                    <div class="dropdown-content">
+                        <a href="datosEstudiante.jsp">VER DATOS PERSONALES</a>
+                        <a href="listaDeEstudiantes.jsp">VER USUARIOS</a>
+                    </div>
+                </li>
                 <li id="logoutOption"><a href="index.jsp">SALIR <i class="fas fa-sign-out-alt"></i></a></li>
             </ul>
         </nav>

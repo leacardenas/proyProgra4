@@ -27,6 +27,8 @@ public class Estudiantes {
     private String estudiante_clave;
     private Date estudiante_ultimo_acceso;
     private Integer estudiante_grupo_id;
+    
+    private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
     public Estudiantes() {
         estudiante_ultimo_acceso = new Date();
@@ -150,7 +152,6 @@ public class Estudiantes {
     }
     
     public String dateToString(Date d){
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         String string = sdf.format(d);
         
         return string;
@@ -174,5 +175,23 @@ public class Estudiantes {
             );    
     }
      
-    
+    public static String getTablaUsuarioHTML(List<Estudiantes> estudiantesActivos) {
+        StringBuilder r = new StringBuilder();
+        for (Estudiantes usuario : estudiantesActivos) {
+            r.append("<tr>");
+            r.append(String.format(
+                    "<td>%s</td>"
+                    + "<td>%s</td>"
+                    + "<td>%d</td>"
+                    + "<td>%s</td>",
+                    usuario.getId(),
+                    usuario.nombreCompleto(),
+                    usuario.getNrc(),
+                    sdf.format(usuario.getUltimo_acceso())
+                    )
+            );
+            r.append("</tr>");
+        }
+        return r.toString();
+    }
 }

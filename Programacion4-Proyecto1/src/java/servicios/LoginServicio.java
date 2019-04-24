@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import modelo.Estudiantes;
 import modelo.dao.GestorEstudiante;
 
 /**
@@ -55,6 +56,10 @@ public class LoginServicio extends HttpServlet {
             
             response.sendRedirect("datosEstudiante.jsp");
             gUsuarios.setUserLogin(usuario);
+            
+            Estudiantes e = gUsuarios.obtenerUsuario(usuario);
+            gUsuarios.agregarUsuarioActivo(e);
+            
         } else {
             response.sendRedirect("errorIngreso.jsp");
         }

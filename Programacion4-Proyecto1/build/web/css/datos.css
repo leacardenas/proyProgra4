@@ -39,3 +39,76 @@
 #datosPersonales .check {
     margin-left: 20px;
 }
+
+body {
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif !important;
+    background-color: #e7e7e7;
+}
+
+#info {
+    width: 100%;
+    position: relative;
+    margin: 1% auto;
+    box-shadow: 2px 18px 70px 0px #9D9D9D;
+    overflow: hidden;
+    font-size: 16px;
+}
+
+#listas{
+    width: 100%;
+    vertical-align: top;
+}
+
+#listas td{
+    vertical-align: top!important;
+}
+
+h1 {
+    margin: 0;
+    text-align: center;
+    color: #00a3c2;
+}
+
+#listas table {
+  background: white;
+    border-collapse: collapse;
+    margin: auto;
+    max-width: 90%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+ 
+#listas table th {
+  color: #D5DDE5;
+    background: #1b1e24;
+    border-bottom: 4px solid #9ea7af;
+    border-right: 1px solid #343a45;
+    font-size: 23px;
+    font-weight: 100;
+    padding: 24px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+  
+#listas table tr {
+  border-top: 1px solid #C1C3D1;
+  color:#666B85;
+  font-size:16px;
+  font-weight:normal;
+  text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+}
+ 
+#listas table tr:hover td {
+  background:#4E5066;
+  color:#FFFFFF;
+  border-top: 1px solid #22262e;
+}
+ 
+#listas table td {
+  background:#FFFFFF;
+  padding:20px;
+  text-align:left;
+  vertical-align:middle;
+  font-weight:300;
+  font-size:18px;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #C1C3D1;
+}
