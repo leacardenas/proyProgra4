@@ -8,6 +8,10 @@
         <servlet-name>EditarConstrasennaServicio</servlet-name>
         <servlet-class>servicios.EditarConstrasennaServicio</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServicioActualizacion</servlet-name>
+        <servlet-class>servicios.ServicioActualizacion</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServicio</servlet-name>
         <url-pattern>/LoginServicio</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>EditarConstrasennaServicio</servlet-name>
         <url-pattern>/EditarConstrasennaServicio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServicioActualizacion</servlet-name>
+        <url-pattern>/ServicioActualizacion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

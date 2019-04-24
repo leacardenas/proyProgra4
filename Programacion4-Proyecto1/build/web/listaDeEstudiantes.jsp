@@ -1,5 +1,5 @@
 <%--
-// datosEstudiante.jsp
+// listaDeEstudiantes.jsp
 //
 // EIF209 - Programación 4 – Proyecto #1
 // Abril 2019
@@ -12,7 +12,6 @@
 //
 --%>
 
-<%@page import="modelo.BeanEstudiante"%>
 <%@page import="modelo.dao.GestorEstudiante"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -24,10 +23,11 @@
         <link rel="shortcut icon" type="image/png" href="https://img.icons8.com/ultraviolet/100/000000/user-group-man-man.png" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="js/datos.js" type="text/javascript"></script>
+        <script src="requestJSON.js" type="text/javascript"></script>
         <jsp:directive.include file="fonts.jsp" />
         <title>Datos</title>
     </head>
-    <body>
+    <body onload="init();">
         <nav>
             <ul>
                 <li class="dropdown">
@@ -48,27 +48,30 @@
             </ul>
         </nav>
 
-        <div id="wrapper">
-            <div id="datosPersonales">
-                <h2>Datos personales</h2>
-                <%
-                    HttpSession sesionActual = request.getSession(true);
-                    BeanEstudiante usuario = null;
-                    if(sesionActual.getAttribute("usuario") != null){
-                        usuario = new BeanEstudiante(sesionActual.getAttribute("usuario").toString());
-                    }
-                    long transcurrido = System.currentTimeMillis() - sesionActual.getLastAccessedTime();
+        <div id="info">
+            <table id="listas">
+                <td>
+                    <h1>Usuarios</h1>
+                    <table id="listaUsuarios">
+                        <tr>
+                            <th onclick="ordenarTabla(0,'listaUsuarios')">ID</th>
+                            <th onclick="ordenarTabla(1,'listaUsuarios')">Nombre</th>
+                            <th onclick="ordenarTabla(2,'listaUsuarios')">NCR</th>
+                            <th onclick="ordenarTabla(3,'listaUsuarios')">Grupo</th>
+                        </tr>
+                        <%out.print(GestorEstudiante.obtenerInstancia().listarTodosLosUsuariosHTML());%>
+                    </table>
+                </td>
+                <td>
+                    <h1>Usuarios activos</h1>
                     
-                    if (usuario == null) {
-                        request.getRequestDispatcher("errorIngreso.jsp").forward(request, response);
-                    }
-                    if (transcurrido > (1000 * 60 * 5)) {
-                        request.getRequestDispatcher("errorIngreso.jsp?error=1").forward(request, response);
-                    }else{
-                        out.print(GestorEstudiante.obtenerInstancia().imprimirUsuario(usuario.getId()));
-                    }
-                %>
-            </div> 
+                    <table id="listaUsuariosActivos">
+                        <tbody id="listaAccesos">
+                            <%out.print(GestorEstudiante.obtenerInstancia().imprimirTablaUsuarioHTML());%>
+                        </tbody>
+                    </table>
+                </td>
+            </table>
         </div>
     </body>
 </html>

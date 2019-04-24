@@ -13,12 +13,12 @@ import static org.apache.commons.text.StringEscapeUtils.ESCAPE_HTML4;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author fiore
  */
 public class Estudiantes {
+
     private String estudiante_id;
     private String estudiante_nombre;
     private String estudiante_apellidos;
@@ -27,6 +27,8 @@ public class Estudiantes {
     private String estudiante_clave;
     private Date estudiante_ultimo_acceso;
     private Integer estudiante_grupo_id;
+
+    private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
     public Estudiantes() {
         estudiante_ultimo_acceso = new Date();
@@ -106,13 +108,13 @@ public class Estudiantes {
     public void setGrupo_id(Integer estudiante_grupo_id) {
         this.estudiante_grupo_id = estudiante_grupo_id;
     }
-    
-    public String nombreCompleto(){
+
+    public String nombreCompleto() {
         String nom = this.estudiante_nombre + " " + this.estudiante_apellidos;
         return nom;
     }
-    
-    public static Estudiantes fromArray(ArrayList<String> datos) throws ParseException{
+
+    public static Estudiantes fromArray(ArrayList<String> datos) throws ParseException {
         String idUsuario = datos.get(0);
         String estudiante_nombre = datos.get(1);
         String estudiante_apellidos = datos.get(2);
@@ -121,21 +123,18 @@ public class Estudiantes {
         String password = datos.get(5);
         String estudiante_ultimo_acceso = datos.get(6);
         String grupo_Id = datos.get(7);
-        
-        
+
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
         Date acceso = formatter.parse(estudiante_ultimo_acceso);
 
         Integer nrc1 = Integer.parseInt(estudiante_nrc);
         Integer sec = Integer.parseInt(estudiante_secuencia);
         Integer grupo = Integer.parseInt(grupo_Id);
-        
-        
-        
-        return new Estudiantes(idUsuario,estudiante_nombre,estudiante_apellidos,nrc1,
-        sec,password,acceso,grupo);
+
+        return new Estudiantes(idUsuario, estudiante_nombre, estudiante_apellidos, nrc1,
+                sec, password, acceso, grupo);
     }
-    
+
     public List<Object> toArray() {
         List<Object> r = new ArrayList<>();
         r.add(this.getId());
@@ -145,34 +144,58 @@ public class Estudiantes {
         r.add(this.getClave());
         r.add(this.dateToString(this.getUltimo_acceso()));
         r.add(String.valueOf(this.getGrupo_id()));
-        
+
         return r;
     }
-    
-    public String dateToString(Date d){
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+
+    public String dateToString(Date d) {
         String string = sdf.format(d);
-        
+
         return string;
     }
-    
+
     private static final String FORMATO_REGISTRO_HTML
             = "<tr><td class=\"etiqueta\">Id:</td><td class=\"datos\">%s</td></tr>"
             + "<tr><td class=\"etiqueta\">Nombre:</td><td class=\"datos\">%s</td></tr>"
             + "<tr><td class=\"etiqueta\">Ultimo acceso:</td><td class=\"datos\">%s</td></tr>"
             + "<tr><td class=\"etiqueta\">Grupo:</td><td class=\"datos\">%s</td></tr>";
-     
+
     public String toHTMLString() {
         String m = estudiante_nombre + " " + estudiante_apellidos;
         String d = this.dateToString(estudiante_ultimo_acceso);
         String g = String.valueOf(this.estudiante_grupo_id);
-            return String.format(FORMATO_REGISTRO_HTML,
-                    StringEscapeUtils.builder(ESCAPE_HTML4).escape(estudiante_id),
-                    StringEscapeUtils.builder(ESCAPE_HTML4).escape(m),
-                    StringEscapeUtils.builder(ESCAPE_HTML4).escape(d),
-                    StringEscapeUtils.builder(ESCAPE_HTML4).escape(g)
-            );    
+        return String.format(FORMATO_REGISTRO_HTML,
+                StringEscapeUtils.builder(ESCAPE_HTML4).escape(estudiante_id),
+                StringEscapeUtils.builder(ESCAPE_HTML4).escape(m),
+                StringEscapeUtils.builder(ESCAPE_HTML4).escape(d),
+                StringEscapeUtils.builder(ESCAPE_HTML4).escape(g)
+        );
     }
-     
-    
+
+    public static String getTablaUsuarioHTML(List<Estudiantes> estudiantesActivos) {
+        StringBuilder r = new StringBuilder();
+        r.append("<tr>\n"
+                + "<th onclick=\"ordenarTabla(0,'listaUsuariosActivos')\">ID</th>\n"
+                + "<th onclick=\"ordenarTabla(1,'listaUsuariosActivos')\">Nombre</th>\n"
+                + "<th onclick=\"ordenarTabla(2,'listaUsuariosActivos')\">NCR</th>\n"
+                + "<th onclick=\"ordenarTabla(3,'listaUsuariosActivos')\">Ultimo acceso</th>\n"
+                + "</tr>");
+
+        for (Estudiantes usuario : estudiantesActivos) {
+            r.append("<tr>");
+            r.append(String.format(
+                    "<td>%s</td>"
+                    + "<td>%s</td>"
+                    + "<td>%d</td>"
+                    + "<td>%s</td>",
+                    usuario.getId(),
+                    usuario.nombreCompleto(),
+                    usuario.getNrc(),
+                    sdf.format(usuario.getUltimo_acceso())
+            )
+            );
+            r.append("</tr>");
+        }
+        return r.toString();
+    }
 }
