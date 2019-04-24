@@ -33,8 +33,8 @@ public class LoginServicio extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         response.setHeader("cache-control", "no-cache, no-store, must-revalidate");
-       GestorEstudiante gUsuarios = GestorEstudiante.obtenerInstancia();
+        response.setHeader("cache-control", "no-cache, no-store, must-revalidate");
+        GestorEstudiante gUsuarios = GestorEstudiante.obtenerInstancia();
         boolean usuarioValido = false;
 
         String usuario = request.getParameter("usuario");
@@ -61,7 +61,7 @@ public class LoginServicio extends HttpServlet {
             gUsuarios.agregarUsuarioActivo(e);
             
         } else {
-            response.sendRedirect("errorIngreso.jsp");
+            response.sendRedirect("errorIngreso.jsp?error=2");
         }
     
     }
