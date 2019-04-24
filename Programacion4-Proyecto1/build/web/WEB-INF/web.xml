@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>LoginServicio</servlet-name>
+        <servlet-class>servicios.LoginServicio</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditarConstrasennaServicio</servlet-name>
+        <servlet-class>servicios.EditarConstrasennaServicio</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServicioActualizacion</servlet-name>
+        <servlet-class>servicios.ServicioActualizacion</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServicio</servlet-name>
+        <url-pattern>/LoginServicio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarConstrasennaServicio</servlet-name>
+        <url-pattern>/EditarConstrasennaServicio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServicioActualizacion</servlet-name>
+        <url-pattern>/ServicioActualizacion</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
