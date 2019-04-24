@@ -42,11 +42,14 @@
         <div id="wrapper">
             <%
                     HttpSession sesionActual = request.getSession(true);
-                    Object usuario = sesionActual.getAttribute("usuario");
+                    BeanEstudiante usuario = null;
+                    if(sesionActual.getAttribute("usuario") != null){
+                     usuario = new BeanEstudiante(sesionActual.getAttribute("usuario").toString());
+                    }
                     long transcurrido = System.currentTimeMillis() - sesionActual.getLastAccessedTime();
                     
-                    if (request.getSession(true).getAttribute("usuario") == null) {
-                    request.getRequestDispatcher("errorIngreso.jsp").forward(request, response);
+                    if (usuario == null) {
+                        request.getRequestDispatcher("errorIngreso.jsp").forward(request, response);
                     }
                     if (transcurrido > (1000 * 60 * 5)) {
                         request.getRequestDispatcher("errorIngreso.jsp?error=1").forward(request, response);

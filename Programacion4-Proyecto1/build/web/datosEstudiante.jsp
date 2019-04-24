@@ -12,6 +12,7 @@
 //
 --%>
 
+<%@page import="modelo.BeanEstudiante"%>
 <%@page import="modelo.dao.GestorEstudiante"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -46,18 +47,20 @@
                 <h2>Datos personales</h2>
                 <%
                     HttpSession sesionActual = request.getSession(true);
-                    Object usuario = sesionActual.getAttribute("usuario");
+                    BeanEstudiante usuario = null;
+                    if(sesionActual.getAttribute("usuario") != null){
+                        usuario = new BeanEstudiante(sesionActual.getAttribute("usuario").toString());
+                    }
                     long transcurrido = System.currentTimeMillis() - sesionActual.getLastAccessedTime();
                     
-                    if (request.getSession(true).getAttribute("usuario") == null) {
-                    request.getRequestDispatcher("errorIngreso.jsp").forward(request, response);
+                    if (usuario == null) {
+                        request.getRequestDispatcher("errorIngreso.jsp").forward(request, response);
                     }
                     if (transcurrido > (1000 * 60 * 5)) {
                         request.getRequestDispatcher("errorIngreso.jsp?error=1").forward(request, response);
                     }else{
-                    out.print(GestorEstudiante.obtenerInstancia().imprimirUsuario(usuario.toString()));
+                        out.print(GestorEstudiante.obtenerInstancia().imprimirUsuario(usuario.getId()));
                     }
-                    
                 %>
             </div> 
         </div>
