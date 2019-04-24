@@ -1,3 +1,19 @@
+function init() {
+    setTimeout(actualizar, 1000);
+}
+
+function actualizar() {
+    requestJSON(actualizarInfo, "ServicioActualizacion");
+    setTimeout(actualizar, 1000);
+}
+
+function actualizarInfo(datos) {
+    var refListaAccesos = document.getElementById("listaAccesos");
+    if (refListaAccesos) {
+        refListaAccesos.innerHTML = datos.listaAccesos;
+    }
+}
+
 function showPassword() {
     var x = document.getElementById("myPassword");
     if (x.type === "password") {

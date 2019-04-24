@@ -23,10 +23,11 @@
         <link rel="shortcut icon" type="image/png" href="https://img.icons8.com/ultraviolet/100/000000/user-group-man-man.png" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="js/datos.js" type="text/javascript"></script>
+        <script src="requestJSON.js" type="text/javascript"></script>
         <jsp:directive.include file="fonts.jsp" />
         <title>Datos</title>
     </head>
-    <body>
+    <body onload="init();">
         <nav>
             <ul>
                 <li class="dropdown">
@@ -65,13 +66,9 @@
                     <h1>Usuarios activos</h1>
                     
                     <table id="listaUsuariosActivos">
-                        <tr>
-                            <th onclick="ordenarTabla(0,'listaUsuariosActivos')">ID</th>
-                            <th onclick="ordenarTabla(1,'listaUsuariosActivos')">Nombre</th>
-                            <th onclick="ordenarTabla(2,'listaUsuariosActivos')">NCR</th>
-                            <th onclick="ordenarTabla(3,'listaUsuariosActivos')">Ultimo acceso</th>
-                        </tr>
-                        <%out.print(GestorEstudiante.obtenerInstancia().imprimirTablaUsuarioHTML());%>
+                        <tbody id="listaAccesos">
+                            <%out.print(GestorEstudiante.obtenerInstancia().imprimirTablaUsuarioHTML());%>
+                        </tbody>
                     </table>
                 </td>
             </table>
