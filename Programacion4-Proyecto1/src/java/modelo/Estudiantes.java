@@ -198,4 +198,22 @@ public class Estudiantes {
         }
         return r.toString();
     }
+    
+    public String toHTML(){
+          
+        StringBuilder r = new StringBuilder();
+      
+        r.append("<tr class=numeroGrupo id=").append(estudiante_id).append(" >");
+        r.append("<td>");
+        r.append(estudiante_apellidos);
+        r.append("</td>");
+
+        r.append("<td>");
+        r.append(estudiante_nombre);
+        r.append("</td>");
+        r.append("</tr>");
+
+
+        return r.toString();
+    }
 }
