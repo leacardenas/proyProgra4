@@ -57,13 +57,13 @@ public class Grupo {
         r.append("<table class=\"tablaInfoGrupo\" id=\"Grupo").append(grupo_id).append("\" onclick=\"crearGrupo(").append(grupo_id).append(");\">");
         r.append("<tbody id=tbodyGrupo").append(grupo_id).append(">");
         r.append("<tr class=numeroGrupo>");
-        r.append("<td colspan=\"2\">");
+        r.append("<th colspan=\"2\">");
         r.append("Grupo ").append(Integer.toString(grupo_id));
         r.append("</td>");
         r.append("</tr>");
 
-        r.append("<tr class=integrantes>");
-        r.append("<td colspan=\"2\">");
+        r.append("<tr class=nombreGrupo>");
+        r.append("<th colspan=\"2\">");
         r.append(grupo_nombre);
         r.append("</td>");
         r.append("</tr>");

@@ -203,7 +203,7 @@ public class Estudiantes {
           
         StringBuilder r = new StringBuilder();
       
-        r.append("<tr class=numeroGrupo id=").append(estudiante_id).append(" >");
+        r.append("<tr class=integrantes id=").append(estudiante_id).append(" >");
         r.append("<td>");
         r.append(estudiante_apellidos);
         r.append("</td>");

@@ -83,7 +83,6 @@
             <table id="tablaGrupos" onload="init();">
                 <tbody id="tbodytablaGrupos">
                     <%
-
                         out.print(GestorGrupo.obtenerInstancia().listaGrupos());
                     %>
                     <%-- 
