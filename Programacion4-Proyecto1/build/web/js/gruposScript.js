@@ -3,6 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+function openNav() {
+  document.getElementById("mySideCreate").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySideCreate").style.width = "0";
+  document.getElementById("nombreGrupo").value = "";
+}
+
 var cant_grupos=0;
 function init(){
     var x = JSON.parse(localStorage.getItem("trID"));
@@ -19,7 +28,7 @@ function procesoCrearGrupo(){
     }).then(d => {
         ActualizarGrupos(d);
     });
-    
+    document.getElementById("nombreGrupo").value = "";
 }
 function ActualizarGrupos(json){
 

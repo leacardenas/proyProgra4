@@ -26,9 +26,9 @@
     background: #1b1e24;
     border-bottom: 4px solid #9ea7af;
     border-right: 1px solid #343a45;
-    font-size: 23px;
+    font-size: 20px;
     font-weight: 100;
-    padding: 15px;
+    padding: 10px;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
@@ -40,15 +40,9 @@
     text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
 }
 
-#tablaGrupos table tr:hover td {
-    background:#4E5066;
-    color:#FFFFFF;
-    border-top: 1px solid #22262e;
-}
-
 #tablaGrupos table td {
     background:#FFFFFF;
-    padding:10px;
+    padding:5px;
     text-align:left;
     vertical-align:middle;
     font-weight:300;
@@ -60,4 +54,53 @@
 .nombreGrupo th{
     background-color: #00a3c2!important;
     color: black!important;
+}
+
+.sideCreate {
+  height: 280px;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  background-color: #393b3e;
+  overflow-x: hidden;
+  transition: 0.5s;
+  top: 70px;
+  border-radius: 0px 30px 30px 0px;
+}
+
+.tablaIngreso {
+    text-align: center;
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+}
+
+input[type=text] {
+  width: 90%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: large;
+}
+
+button {
+  width: 95%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  font-size: large;
+}
+
+.sideCreate p {
+    text-align: right;
+    margin: 0;
+    padding-right: 36px;
+    padding-top: 10px;
 }

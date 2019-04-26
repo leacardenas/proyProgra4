@@ -47,6 +47,28 @@
                 <li id="logoutOption"><a href="index.jsp">SALIR <i class="fas fa-sign-out-alt"></i></a></li>
             </ul>
         </nav>
+        
+        <div id="mySideCreate" class="sideCreate">
+            <p style="font-size:30px;cursor:pointer" onclick="closeNav()"><i style="color: #00a3c2" class="far fa-window-close"></i></p>
+            <table class ="tablaIngreso">
+                <tr>
+                    <td align="center">
+                        Nombre de Grupo:&nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="30"
+                               id="nombreGrupo" name="usuario" autocomplete="off" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="2">
+                        <button type="button" onclick="procesoCrearGrupo(); closeNav();">Crear Grupo </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
         <div id="wrapper">
             <%
@@ -65,21 +87,8 @@
                 }
             %>
             
-            <table class ="tablaIngreso">
-                <tr>
-                    <td align="right">
-                        Nombre de Grupo:&nbsp;
-                    </td>
-                    <td>
-                        <input type="text" size="30"
-                               id="nombreGrupo" name="usuario" autocomplete="off" />
-                    </td>
-                </tr><tr>
-                    <td align="center" colspan="2">
-                        <button type="button" onclick="procesoCrearGrupo();">Crear Grupo </button>
-                    </td>
-                </tr>
-            </table>
+            <p style="font-size:20px; cursor:pointer" onclick="openNav()"><i style="color: #00a3c2" class="far fa-plus-square"></i> Crear grupo</p>
+            
             <table id="tablaGrupos" onload="init();">
                 <tbody id="tbodytablaGrupos">
                     <%
