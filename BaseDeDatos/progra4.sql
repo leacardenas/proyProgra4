@@ -34,7 +34,7 @@ CREATE TABLE `estudiante` (
   PRIMARY KEY (`estudiante_id`),
   KEY `fk_estudiante_grupo_idx` (`estudiante_grupo_id`),
   CONSTRAINT `fk_estudiante_grupo` FOREIGN KEY (`estudiante_grupo_id`) REFERENCES `grupo` (`grupo_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -75,7 +75,7 @@ CREATE TABLE `grupo` (
   `grupo_id` int(6) NOT NULL AUTO_INCREMENT,
   `grupo_nombre` varchar(45) NOT NULL,
   PRIMARY KEY (`grupo_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
