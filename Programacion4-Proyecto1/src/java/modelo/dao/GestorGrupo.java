@@ -40,11 +40,13 @@ public class GestorGrupo {
     private static GestorGrupo instancia = null;
 //
     private static final String CMD_GRUPO = "INSERT INTO grupo (grupo_nombre) VALUES ('%s');";
-    private static final String CANT_REGISTROS_ = "SELECT count(*) FROM libros;";
+    
+    private static final String ABANDONAR_GRUPO = "UPDATE proy_progra4.estudiante SET estudiante_grupo_id=null WHERE estudiante_id='%s';";
     
 //    private static final String CURSOS_NO_MATRICULADOS = "SELECT id,secuencia,nombre,cupo,activo FROM grupo AS grupo "
 //            + "LEFT JOIN matricula AS matricula ON curso_codigo = curso.codigo AND estudiante_id = '%s' "
 //            + "WHERE curso_codigo IS NULL ORDER BY codigo;";
+
     public static GestorGrupo obtenerInstancia() {
         if (instancia == null) {
             instancia = new GestorGrupo();
@@ -125,17 +127,56 @@ public class GestorGrupo {
         return aux;
     }
     
-    public int getCantidadRegistros() throws InstantiationException, ClassNotFoundException, IllegalAccessException, SQLException {
-        Totalidad_De_Grupos tg = new Totalidad_De_Grupos();
+     //-------------------------------------Metodos para desmatricularse-----------------------------------  
+    
+      public void abandonarGrupo(String estudiante) throws SQLException, InstantiationException, ClassNotFoundException, IllegalAccessException {
+          
+          try {
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            Connection cnx = DriverManager.getConnection(CONEXION, LOGIN, PASSWORD);
+            
+            Statement stm = cnx.createStatement();
+            String aux = String.format(ABANDONAR_GRUPO, estudiante);
+            stm.executeUpdate(aux);
+            
+        } catch (Exception ex) {
+            System.err.printf("Excepción: '%s'%n", ex.getMessage());
+            
+        } 
+      }
+    
+      public int cant_registros_grupo(int idGrupo) throws SQLException, InstantiationException, ClassNotFoundException, IllegalAccessException{
         
+          int n= 0;
         DriverManager.registerDriver(new com.mysql.jdbc.Driver());
         Connection cnx = DriverManager.getConnection(CONEXION, LOGIN, PASSWORD);
-        
         Statement stm = cnx.createStatement();
-        ResultSet grupo = stm.executeQuery(String.format(CANT_REGISTROS_));
-        grupo.next();
-        int aux = grupo.getInt("count");
-        return aux;
         
+        String aux=String.format("SELECT count(grupo_id) FROM estudiantes WHERE grupo_id='%d';", idGrupo);
+        ResultSet rs=stm.executeQuery(aux);
+        
+        if(rs.next()) {
+            
+            n= rs.getInt(1);
+        }
+        
+        stm.close();
+        cnx.close();
+        return n; 
+    }
+      
+    public void salirGrupo(Estudiantes estudiante, int grupoID) throws SQLException, InstantiationException, ClassNotFoundException, IllegalAccessException{
+        
+        if(estudiante.getGrupo_id()==grupoID){
+            
+            if(cant_registros_grupo(grupoID)==1){
+                //metodo para eliminar el grupo
+            }else{
+                abandonarGrupo(estudiante.getId());
+            }
+            
+        }else{
+            System.out.print("ERROR");
+        } 
     }
 }
