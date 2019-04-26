@@ -21,6 +21,7 @@
         <link href="css/menu.css" rel="stylesheet" type="text/css"/>
         <link href="css/grupos.css" rel="stylesheet" type="text/css"/>
         <link href="css/default.css" rel="stylesheet" type="text/css"/>
+        <script src="js/gruposScript.js" type="text/javascript"></script>
         <link rel="shortcut icon" type="image/png" href="https://img.icons8.com/ultraviolet/100/000000/user-group-man-man.png" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <jsp:directive.include file="fonts.jsp" />
@@ -82,8 +83,7 @@
             <table id="tablaGrupos" onload="init();">
                 <tbody id="tbodytablaGrupos">
                     <%
-                        HttpSession sesion = request.getSession(true);
-                        sesion.setAttribute("usuario", "116570271");
+
                         out.print(GestorGrupo.obtenerInstancia().listaGrupos());
                     %>
                     <%-- 

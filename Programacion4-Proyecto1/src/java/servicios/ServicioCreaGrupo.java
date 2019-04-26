@@ -55,7 +55,6 @@ public class ServicioCreaGrupo extends HttpServlet {
                     r.put("grupo_id_antiguo",grupo_id_antiguo);
                     r.put("idUsuario", idUsuario);
                 }
-                else{}
 
 
                 out.println(r);

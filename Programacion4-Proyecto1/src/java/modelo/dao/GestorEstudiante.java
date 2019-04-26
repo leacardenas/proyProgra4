@@ -56,9 +56,10 @@ public class GestorEstudiante implements Serializable{
     private static final String LISTA_DE_USUARIOS
             = "SELECT * FROM proy_progra4.estudiantes_x_grupo;";
     
-    private static final String ACTUALIZAR_GRUPO = "UPDATE proy_progra4.estudiante SET grupo_id = '%s' WHERE estudiante_id = '%s';";
+    private static final String ACTUALIZAR_GRUPO = "UPDATE proy_progra4.estudiante SET estudiante_grupo_id = '%s' WHERE estudiante_id = '%s';";
 
-    private static final String GET_ESTUDIANTE= "SELECT nombre,apellidos,grupo_id FROM proy_progra4.estudiante WHERE estudiante_id = '%s';";
+    private static final String GET_ESTUDIANTE= "SELECT estudiante_nombre,estudiante_apellidos,"
+            + "estudiante_grupo_id FROM proy_progra4.estudiante WHERE estudiante_id = '%s';";
     
     private static final String IMPRIMIR_DATOS = "<table>\n"
             + "<tr>\n"
@@ -355,9 +356,9 @@ public class GestorEstudiante implements Serializable{
             ResultSet estudiante = stm.executeQuery(aux);
             
             estudiante.next();
-            String apellidos=estudiante.getString("apellidos");
-            String nombre=estudiante.getString("nombre");
-            String grupo_id= estudiante.getString("grupo_id");
+            String apellidos=estudiante.getString("estudiante_apellidos");
+            String nombre=estudiante.getString("estudiante_nombre");
+            String grupo_id= estudiante.getString("estudiante_grupo_id");
             est.setNombre(nombre);
             est.setApellidos(apellidos);
             est.setGrupo_id(Integer.parseInt(grupo_id));

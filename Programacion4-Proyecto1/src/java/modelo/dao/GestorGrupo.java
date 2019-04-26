@@ -33,10 +33,10 @@ public class GestorGrupo {
             + "FROM grupo;";
     private static final String OBTENER_ID
             = "SELECT grupo_id "
-            + "FROM grupo WHERE grupo_nombre='%s';";
+            + "FROM proy_progra4.grupo WHERE grupo_nombre='%s';";
     private static final String LISTAR_EST_POR_GRUPO
             = "SELECT estudiante_nombre, estudiante_apellidos, estudiante_id "
-            + "FROM proy_progra4.estudiante WHERE estudiante_id='%d';";
+            + "FROM proy_progra4.estudiante WHERE estudiante_grupo_id='%d';";
     private static GestorGrupo instancia = null;
 //
     private static final String CMD_GRUPO = "INSERT INTO grupo (grupo_nombre) VALUES ('%s');";
@@ -73,7 +73,8 @@ public class GestorGrupo {
                 gruposLista.add(g1);
             }
             for (int i = 0; i < gruposLista.size(); i++) {
-                int id = gruposLista.get(i).getId();
+                Grupo actual= gruposLista.get(i);
+                int id = actual.getId();
                 ResultSet estudiantes = stm.executeQuery(String.format(LISTAR_EST_POR_GRUPO, id));
                 while (estudiantes.next()) {
                     String apellidos = estudiantes.getString("estudiante_apellidos");
@@ -83,7 +84,7 @@ public class GestorGrupo {
                     est.setNombre(nombre);
                     est.setApellidos(apellidos);
                     est.setId(id_est);
-                    gruposLista.get(i).insert(est);
+                    actual.insert(est);
                 }
             }
             tg.setGrupos(gruposLista);
@@ -120,7 +121,7 @@ public class GestorGrupo {
         Statement stm = cnx.createStatement();
         ResultSet grupo = stm.executeQuery(String.format(OBTENER_ID, nombre));
         grupo.next();
-        int aux = grupo.getInt("id");
+        int aux = grupo.getInt("grupo_id");
         return aux;
     }
     

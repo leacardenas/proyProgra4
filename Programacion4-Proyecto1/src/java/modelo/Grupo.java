@@ -18,6 +18,8 @@ public class Grupo {
     private ArrayList<Estudiantes> estudiantes;
 
     public Grupo() {
+        
+        estudiantes= new ArrayList<Estudiantes>();
     }
 
     public Grupo(Integer grupo_id, String grupo_nombre) {
