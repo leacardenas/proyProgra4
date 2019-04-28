@@ -12,6 +12,7 @@
 //
 --%>
 
+<%@page import="modelo.dao.GestorGrupo"%>
 <%@page import="modelo.BeanEstudiante"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -20,6 +21,7 @@
         <link href="css/menu.css" rel="stylesheet" type="text/css"/>
         <link href="css/grupos.css" rel="stylesheet" type="text/css"/>
         <link href="css/default.css" rel="stylesheet" type="text/css"/>
+        <script src="js/gruposScript.js" type="text/javascript"></script>
         <link rel="shortcut icon" type="image/png" href="https://img.icons8.com/ultraviolet/100/000000/user-group-man-man.png" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <jsp:directive.include file="fonts.jsp" />
@@ -45,178 +47,60 @@
                 <li id="logoutOption"><a href="index.jsp">SALIR <i class="fas fa-sign-out-alt"></i></a></li>
             </ul>
         </nav>
+        
+        <div id="mySideCreate" class="sideCreate">
+            <p style="font-size:30px;cursor:pointer" onclick="closeNav()"><i style="color: #00a3c2" class="far fa-window-close"></i></p>
+            <table class ="tablaIngreso">
+                <tr>
+                    <td align="center">
+                        Nombre de Grupo:&nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" size="30"
+                               id="nombreGrupo" name="usuario" autocomplete="off" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="2">
+                        <button type="button" onclick="procesoCrearGrupo(); closeNav();">Crear Grupo </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
         <div id="wrapper">
             <%
-                    HttpSession sesionActual = request.getSession(true);
-                    BeanEstudiante usuario = null;
-                    if(sesionActual.getAttribute("usuario") != null){
-                     usuario = new BeanEstudiante(sesionActual.getAttribute("usuario").toString());
-                    }
-                    long transcurrido = System.currentTimeMillis() - sesionActual.getLastAccessedTime();
-                    
-                    if (usuario == null) {
-                        request.getRequestDispatcher("errorIngreso.jsp").forward(request, response);
-                    }
-                    if (transcurrido > (1000 * 60 * 5)) {
-                        request.getRequestDispatcher("errorIngreso.jsp?error=1").forward(request, response);
-                    }
-                %>
-            <table class="tablaIngreso">
-                <tbody>
-                    <tr>
-                        <td align="right">
-                            Nombre de Grupo:&nbsp;
-                        </td>
-                        <td>
-                            <input type="text" size="30" id="nombreGrupo" name="usuario" autocomplete="off">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="center" colspan="2">
-                            <button type="button" onclick="crearGrupo();">Crear Grupo </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                HttpSession sesionActual = request.getSession(true);
+                BeanEstudiante usuario = null;
+                if (sesionActual.getAttribute("usuario") != null) {
+                    usuario = new BeanEstudiante(sesionActual.getAttribute("usuario").toString());
+                }
+                long transcurrido = System.currentTimeMillis() - sesionActual.getLastAccessedTime();
+
+                if (usuario == null) {
+                    request.getRequestDispatcher("errorIngreso.jsp").forward(request, response);
+                }
+                if (transcurrido > (1000 * 60 * 5)) {
+                    request.getRequestDispatcher("errorIngreso.jsp?error=1").forward(request, response);
+                }
+            %>
+            
+            <p style="font-size:20px; cursor:pointer" onclick="openNav()"><i style="color: #00a3c2" class="far fa-plus-square"></i> Crear grupo</p>
+            
             <table id="tablaGrupos" onload="init();">
-                <tbody>
-                    <tr>
-                        <td>
-                            <table class="tablaInfoGrupo" onclick="crearGrupo();">
-                                <tbody>
-                                    <tr class="numeroGrupo">
-                                        <td colspan="2">Grupo 1</td>
-                                    </tr>
-                                    <tr class="nombreGrupo">
-                                        <td colspan="2">holis</td>
-                                    </tr>
-                                    <tr class="integrantes">
-                                        <td>Cambronero Murillo</td>
-                                        <td>Mariela</td>
-                                    </tr>
-                                    <tr class="integrantes">
-                                        <td>Siles Madrigal</td>
-                                        <td>Alejandra</td>
-                                    </tr>
-                                    <tr class="integrantes">
-                                        <td>Sánchez Loaiza</td>
-                                        <td>Adriana Daniela</td>
-                                    </tr>
-                                    <tr class="integrantes">
-                                        <td>Garro Eduarte</td>
-                                        <td>Bryan</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </td>
-                        <td>
-                            <table class="tablaInfoGrupo" onclick="crearGrupo();">
-                                <tbody>
-                                    <tr class="numeroGrupo">
-                                        <td colspan="2">Grupo 2</td>
-                                    </tr>
-                                    <tr class="nombreGrupo">
-                                        <td colspan="2">putos</td>
-                                    </tr>
-                                    <tr class="integrantes">
-                                        <td>Vargas Jiménez</td>
-                                        <td>Luis</td>
-                                    </tr>
-                                    <tr class="integrantes">
-                                        <td>Cruz Rojas</td>
-                                        <td>Andrea</td>
-                                    </tr>
-                                    <tr class="integrantes">
-                                        <td>Solís Quesada</td>
-                                        <td>Christian</td>
-                                    </tr>
-                                    <tr class="integrantes">
-                                        <td>Aguilar Vidaurre</td>
-                                        <td>Luis</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <table class="tablaInfoGrupo" onclick="crearGrupo();">
-                                <tbody>
-                                    <tr class="numeroGrupo">
-                                        <td colspan="2">Grupo 3</td>
-                                    </tr>
-                                    <tr class="nombreGrupo">
-                                        <td colspan="2">hols</td>
-                                    </tr>
-                                    <tr class="integrantes">
-                                        <td>Cordero Rodríguez</td>
-                                        <td>Daniel</td>
-                                    </tr>
-                                    <tr class="integrantes">
-                                        <td>Solano Arias</td>
-                                        <td>Stephany</td>
-                                    </tr>
-                                    <tr class="integrantes">
-                                        <td>Álvarez Carranza</td>
-                                        <td>David</td>
-                                    </tr>
-                                    <tr class="integrantes">
-                                        <td>Artavia Donaire</td>
-                                        <td>Joséph</td>
-                                    </tr>
-                                    <tr class="integrantes">
-                                        <td>Madrigal Vásquez</td>
-                                        <td>Juan</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </td>
-                        <td>
-                            <table class="tablaInfoGrupo" onclick="crearGrupo();">
-                                <tbody>
-                                    <tr class="numeroGrupo">
-                                        <td colspan="2">Grupo 4</td>
-                                    </tr>
-                                    <tr class="nombreGrupo">
-                                        <td colspan="2">hell</td>
-                                    </tr>
-                                    <tr class="integrantes">
-                                        <td>Bonilla Valerio</td>
-                                        <td>Alicia</td>
-                                    </tr>
-                                    <tr class="integrantes">
-                                        <td>Rodríguez Chavarría</td>
-                                        <td>Julio</td>
-                                    </tr>
-                                    <tr class="integrantes">
-                                        <td>Alvarado Solórzano</td>
-                                        <td>Cristobal</td>
-                                    </tr>
-                                    <tr class="integrantes">
-                                        <td>Montenegro Brenes</td>
-                                        <td>Elmer</td>
-                                    </tr>
-                                    <tr class="integrantes">
-                                        <td>Monterrey Benavides</td>
-                                        <td>Diego</td>
-                                    </tr>
-                                    <tr class="integrantes">
-                                        <td>Pico García</td>
-                                        <td>Javier</td>
-                                    </tr>
-                                    <tr class="integrantes">
-                                        <td>Moraga Alfaro</td>
-                                        <td>Moisés</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </td>
-                    </tr>
-
+                <tbody id="tbodytablaGrupos">
+                    <%
+                        out.print(GestorGrupo.obtenerInstancia().listaGrupos());
+                    %>
+                    <%-- 
+                    lo primero e invocar al gestor de datos para que me actualice y me traiga todo lo que hay en la base de datos
+                    lo segundo es alerar lo que hace la base de datos mediante fech, en el servidor recibo datos, actualizo la base de datos y genero una respuesta
+                        generar un tr con 3 o 4 td, cada td va a ser una tabla con formato
+                    --%>
                 </tbody>
             </table>
-
         </div>
     </body>
 </html>

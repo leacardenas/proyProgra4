@@ -12,6 +12,14 @@
         <servlet-name>ServicioActualizacion</servlet-name>
         <servlet-class>servicios.ServicioActualizacion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServicioCreaGrupo</servlet-name>
+        <servlet-class>servicios.ServicioCreaGrupo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>servicioProcesoCrearGrupo</servlet-name>
+        <servlet-class>servicios.servicioProcesoCrearGrupo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServicio</servlet-name>
         <url-pattern>/LoginServicio</url-pattern>
@@ -23,6 +31,14 @@
     <servlet-mapping>
         <servlet-name>ServicioActualizacion</servlet-name>
         <url-pattern>/ServicioActualizacion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServicioCreaGrupo</servlet-name>
+        <url-pattern>/ServicioCreaGrupo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>servicioProcesoCrearGrupo</servlet-name>
+        <url-pattern>/servicioProcesoCrearGrupo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
